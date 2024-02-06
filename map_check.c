@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/06 14:09:27 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:10:21 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	count_y(char **argv, t_solong *g)
 
 void	get_map(char **argv, t_solong *g)
 {
-	int			fd;
-	int			i;
+	int		fd;
+	size_t	i;
 
 	i = 0;
 	count_y(argv, g);
@@ -53,25 +53,51 @@ void	get_map(char **argv, t_solong *g)
 	close (fd);
 }
 
-int	check_size(t_solong *g)
+size_t	count_c(t_solong *g, char c)
 {
-	int	i;
+	size_t	n;
 
-	i = 0;
-	while (i < (g->lines - 1))
+	n = 0;
+	g->y = 0;
+	while (g->y < g->lines)
 	{
-		if (ft_strlen(g->map[i]) != ft_strlen(g->map[i + 1]))
-			exit((ft_printf("Error\nMap is not rectangular!\n"), EXIT_FAILURE));
-		i++;
+		g->x = 0;
+		while (g->map[g->y][g->x] != '\0')
+		{
+			if (g->map[g->y][g->x] == c)
+				n++;
+			g->x++;
+		}
+		g->y++;
 	}
-	return (1);
+	return (n);
 }
 
-int	check_map(t_solong *g)
+void	check_map(t_solong *g)
 {
-	if (check_size(g) != 1)
-		return (0);
-	return (1);
+	g->y = 0;
+	while (g->y < (g->lines - 1))
+	{
+		if (ft_strlen(g->map[g->y]) != ft_strlen(g->map[g->y + 1]))
+			exit((ft_printf("Error\nMap is not rectangular!\n"), EXIT_FAILURE));
+		g->y++;
+	}
+	g->y = 0;
+	while (g->y < g->lines)
+	{
+		g->x = 0;
+		while (g->map[g->y][g->x] != '\0')
+		{
+			if (g->map[g->y][g->x] != '1' && g->map[g->y][g->x] != '0'
+				&& g->map[g->y][g->x] != 'P' && g->map[g->y][g->x] != 'C'
+				&& g->map[g->y][g->x] != 'E' && g->map[g->y][g->x] != '\n')
+				exit((ft_printf("Error\nWrong input!\n"), EXIT_FAILURE));
+			g->x++;
+		}
+		g->y++;
+	}
+	if (count_c(g, 'P') != 1 || count_c(g, 'E') != 1 || count_c(g, 'C') < 1)
+		exit((ft_printf("Error\nWrong input!\n"), EXIT_FAILURE));
 }
 
 int	main(int argc, char **argv)
@@ -81,16 +107,14 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	get_map(argv, &g);
+	check_map(&g);
 	if (argc > 1)
 	{
-		if (check_map(&g) == 1)
+		while (g.map[i])
 		{
-			while (g.map[i])
-			{
-				printf("%s", g.map[i]);
-				i++;
-			}
-			free_tab(g.map);
+			printf("%s", g.map[i]);
+			i++;
 		}
+		free_tab(g.map);
 	}
 }

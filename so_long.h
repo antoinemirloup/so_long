@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/06 12:08:06 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:47:08 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 typedef struct s_solong
 {
 	char	**map;
-	int		x;
-	int		y;
-	int		lines;
+	size_t	x;
+	size_t	y;
+	size_t	lines;
 }	t_solong;
 
 void	free_tab(char **tab);
