@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/06 15:10:21 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:16:03 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,31 @@ size_t	count_c(t_solong *g, char c)
 	return (n);
 }
 
+void	check_walls(t_solong *g)
+{
+	g->y = 0;
+	while (g->y < g->lines)
+	{
+		g->x = 0;
+		while (g->x < (ft_strlen(g->map[g->y]) - 1))
+		{
+			if (g->y == 0 || g->y == (g->lines - 1))
+			{
+				if (g->map[g->y][g->x] != '1')
+					exit((ft_printf("Error\nWall got a hole!\n"), EXIT_FAILURE));
+			}
+			else
+			{
+				if (g->map[g->y][0] != '1'
+					|| g->map[g->y][ft_strlen(g->map[g->y]) - 2] != '1')
+					exit((ft_printf("Error\nWall got a hole!\n"), EXIT_FAILURE));
+			}
+			g->x++;
+		}
+		g->y++;
+	}
+}
+
 void	check_map(t_solong *g)
 {
 	g->y = 0;
@@ -98,6 +123,7 @@ void	check_map(t_solong *g)
 	}
 	if (count_c(g, 'P') != 1 || count_c(g, 'E') != 1 || count_c(g, 'C') < 1)
 		exit((ft_printf("Error\nWrong input!\n"), EXIT_FAILURE));
+	check_walls(g);
 }
 
 int	main(int argc, char **argv)
