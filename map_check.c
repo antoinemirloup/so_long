@@ -6,116 +6,91 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/02 15:59:23 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:09:27 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	count_y(char **argv)
+void	count_y(char **argv, t_solong *g)
 {
-	int		fd;
-	int		n;
-	char	*line;
+	int			fd;
+	char		*line;
 
-	n = 0;
+	g->lines = 0;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		exit((perror("Error while opening the map!"), EXIT_FAILURE));
+		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
 		free(line);
 		line = get_next_line(fd);
-		n++;
+		g->lines++;
 	}
 	close (fd);
-	return (n);
 }
 
-char	**get_map(char **argv)
+void	get_map(char **argv, t_solong *g)
 {
-	int		fd;
-	char	**map;
-	int		i;
-	int		lines;
+	int			fd;
+	int			i;
 
 	i = 0;
-	lines = count_y(argv);
+	count_y(argv, g);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		exit((perror("Error while opening the map!"), EXIT_FAILURE));
-	map = malloc(sizeof(char *) * (lines + 1));
-	if (!map)
-		exit((perror("Mem error!"), free_tab(map), EXIT_FAILURE));
-	while (i < lines)
+		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
+	g->map = malloc(sizeof(char *) * (g->lines + 1));
+	if (!g->map)
+		exit((ft_printf("Error\nMem error!\n"), free_tab(g->map), EXIT_FAILURE));
+	while (i < g->lines)
 	{
-		map[i] = get_next_line(fd);
+		g->map[i] = get_next_line(fd);
 		i++;
 	}
-	map[i] = NULL;
+	g->map[i] = NULL;
 	close (fd);
-	return (map);
 }
 
-int	check_walls(char **argv)
+int	check_size(t_solong *g)
 {
-	char	**map;
-	int		x;
-	int		y;
+	int	i;
 
-	x = 0;
-	y = 0;
-	map = get_map(argv);
-	while (map[y] != NULL)
+	i = 0;
+	while (i < (g->lines - 1))
 	{
-		if (y == 0 || y == count_y(argv - 1))
-		{
-			while (map[y][x] != '\n' && map[y][x] != '\0')
-			{
-				if (map[y][x] != '1')
-				{
-					free_tab(map);
-					exit((perror("Wall got a hole!"), EXIT_FAILURE));
-				}
-				x++;
-			}
-		}
-		else
-		{
-			while (map[y][x] != '\n' && map[y][x] != '\0')
-			{
-				if (map[y][0] != '1' || map[y][ft_strlen(map[y])] != '1')
-				{
-					free_tab(map);
-					exit((perror("Wall got a hole!"), EXIT_FAILURE));
-				}
-				x++;
-			}
-		}
-		y++;
+		if (ft_strlen(g->map[i]) != ft_strlen(g->map[i + 1]))
+			exit((ft_printf("Error\nMap is not rectangular!\n"), EXIT_FAILURE));
+		i++;
 	}
-	free_tab(map);
+	return (1);
+}
+
+int	check_map(t_solong *g)
+{
+	if (check_size(g) != 1)
+		return (0);
 	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	char	**map;
+	int			i;
+	t_solong	g;
 
 	i = 0;
-	map = get_map(argv);
+	get_map(argv, &g);
 	if (argc > 1)
 	{
-		if (check_walls(argv) == 1)
+		if (check_map(&g) == 1)
 		{
-			while (map[i])
+			while (g.map[i])
 			{
-				printf("%s", map[i]);
+				printf("%s", g.map[i]);
 				i++;
 			}
-			free_tab(map);
+			free_tab(g.map);
 		}
 	}
 }

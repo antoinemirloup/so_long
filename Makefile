@@ -6,13 +6,13 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/02 14:56:46 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/06 13:29:30 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = @cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 
 SRCS = map_check.c utils1.c
 
 INCLUDE = so_long.h
@@ -32,16 +32,19 @@ all:	$(NAME)
 	
 $(NAME): $(OBJS)
 	@make --no-print-directory -C libft
-	$(CC) $(CFLAGS) $(OBJS) libft/libft.a -o $(NAME)
+	@make --no-print-directory -C printf
+	$(CC) $(CFLAGS) $(OBJS) libft/libft.a printf/libftprintf.a -o $(NAME)
 
 clean :
 	$(RM) $(OBJS)
 	@make --no-print-directory -C libft clean
+	@make --no-print-directory -C printf clean
 		
 fclean:
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
 	@make --no-print-directory -C libft fclean
+	@make --no-print-directory -C printf fclean
 				
 re:		fclean all
 
