@@ -6,13 +6,13 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/07 10:39:49 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/07 11:00:06 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = @cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 
 SRCS = main.c map_check.c path_check1.c path_check2.c utils1.c 
 
 INCLUDE = so_long.h
