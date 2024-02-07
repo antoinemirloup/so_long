@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/06 14:47:08 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:40:29 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,20 @@ typedef struct s_solong
 	size_t	x;
 	size_t	y;
 	size_t	lines;
+	size_t	p_x;
+	size_t	p_y;
+	size_t	e_x;
+	size_t	e_y;
 }	t_solong;
 
+// Map check
+void	get_map(char **argv, t_solong *g);
+void	check_map(t_solong *g);
 void	free_tab(char **tab);
+void	map_doable(t_solong *g);
+void	init_x(t_solong *g);
+void	init_y(t_solong *g);
+void	spread_x(t_solong *g);
+void	spread_y(t_solong *g);
 
 #endif

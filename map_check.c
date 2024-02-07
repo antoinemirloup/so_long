@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/06 16:16:03 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:48:02 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	get_map(char **argv, t_solong *g)
 	while (i < g->lines)
 	{
 		g->map[i] = get_next_line(fd);
+		if (!g->map[i])
+			exit((ft_printf("Error\nMem error!\n"), \
+			free_tab(g->map), EXIT_FAILURE));
 		i++;
 	}
 	g->map[i] = NULL;
@@ -124,23 +127,4 @@ void	check_map(t_solong *g)
 	if (count_c(g, 'P') != 1 || count_c(g, 'E') != 1 || count_c(g, 'C') < 1)
 		exit((ft_printf("Error\nWrong input!\n"), EXIT_FAILURE));
 	check_walls(g);
-}
-
-int	main(int argc, char **argv)
-{
-	int			i;
-	t_solong	g;
-
-	i = 0;
-	get_map(argv, &g);
-	check_map(&g);
-	if (argc > 1)
-	{
-		while (g.map[i])
-		{
-			printf("%s", g.map[i]);
-			i++;
-		}
-		free_tab(g.map);
-	}
 }
