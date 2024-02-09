@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   background.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 13:08:25 by amirloup         ###   ########.fr       */
+/*   Created: 2024/02/09 12:31:00 by amirloup          #+#    #+#             */
+/*   Updated: 2024/02/09 13:16:04 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(void)
+void	background(t_game *g)
 {
-	int			i;
-	t_solong	s;
-	t_game		g;
-
-	i = 0;
-	get_map(&s);
-	check_map(&s);
-	map_doable(&s);
-	free_tab(s.map);
-	get_map(&s);
-	open_window(&g, &s);
-	free_tab(s.map);
+	g->sprite.back = mlx_load_png("assets/background_test2.png");
+	if (!g->sprite.back)
+		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
+	g->sprite.background = mlx_texture_to_image(g->mlx, g->sprite.back);
+	mlx_resize_image(g->sprite.background, WIDTH, HEIGHT);
+	mlx_image_to_window(g->mlx, g->sprite.background, 0, 0);
 }

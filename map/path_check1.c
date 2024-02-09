@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:34:38 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/08 14:46:51 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:28:58 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	find_coordinates(t_solong *g)
 {
 	g->y = 0;
-	while (g->y < g->lines)
+	while (g->y < g->height)
 	{
 		g->x = 0;
 		while (g->x < (ft_strlen(g->map[g->y]) - 1))
@@ -39,7 +39,7 @@ void	find_coordinates(t_solong *g)
 int	scan_xy(t_solong *g, char c1, char c2)
 {
 	g->y = 0;
-	while (g->y < g->lines)
+	while (g->y < g->height)
 	{
 		g->x = 0;
 		while (g->x < (ft_strlen(g->map[g->y]) - 1))

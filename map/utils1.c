@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:56:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/08 14:46:59 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:30:51 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	count_c(t_solong *g, char c)
 
 	n = 0;
 	g->y = 0;
-	while (g->y < g->lines)
+	while (g->y < g->height)
 	{
 		g->x = 0;
 		while (g->map[g->y][g->x] != '\0')

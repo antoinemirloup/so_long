@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:36:51 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/08 14:46:55 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:29:08 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_y(t_solong *g)
 void	spread_x(t_solong *g)
 {
 	g->y = 0;
-	while (g->y < g->lines)
+	while (g->y < g->height)
 	{
 		g->x = 0;
 		while (g->x < (ft_strlen(g->map[g->y]) - 1))
@@ -68,7 +68,7 @@ void	spread_x(t_solong *g)
 void	spread_y(t_solong *g)
 {
 	g->y = 0;
-	while (g->y < g->lines)
+	while (g->y < g->height)
 	{
 		g->x = 0;
 		while (g->x < (ft_strlen(g->map[g->y]) - 1))

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy.c                                          :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 12:52:29 by amirloup         ###   ########.fr       */
+/*   Created: 2024/02/09 11:45:47 by amirloup          #+#    #+#             */
+/*   Updated: 2024/02/09 14:43:13 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	destroy_all(t_game *g)
+void	player(t_game *g, t_solong *s)
 {
-	if (g->sprite.icon)
-		mlx_delete_texture(g->sprite.icon);
-	if (g->sprite.back)
-		mlx_delete_texture(g->sprite.back);
-	if (g->sprite.player)
-		mlx_delete_image(g->mlx, g->sprite.player);
-	if (g->sprite.background)
-		mlx_delete_image(g->mlx, g->sprite.background);
-	mlx_close_window(g->mlx);
+	g->sprite.icon = mlx_load_png("assets/icon.png");
+	if (!g->sprite.icon)
+		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
+	g->sprite.player = mlx_texture_to_image(g->mlx, g->sprite.icon);
+	mlx_resize_image(g->sprite.player, 100, 100);
+	mlx_image_to_window(g->mlx, g->sprite.player, (s->p_x * WIDTH / s->width), (s->p_y * HEIGHT / s->height));
 }
