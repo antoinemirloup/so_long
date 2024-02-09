@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/08 15:14:30 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 10:58:49 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,19 @@ void	spread_y(t_solong *g);
 
 typedef struct s_sprite
 {
-	mlx_image_t	*player;
-	mlx_image_t	*background;
+	mlx_texture_t	*icon;
+	mlx_texture_t	*back;
+	mlx_image_t		*player;
+	mlx_image_t		*background;
 }	t_sprite;
 
-void	open_window(void);
+typedef struct s_game
+{
+	mlx_t		*mlx;
+	t_sprite	sprite;
+}	t_game;
+
+void	open_window(t_game *g);
+void	destroy_all(t_game *g);
 
 #endif
