@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/09 12:34:04 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/09 17:11:00 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = @cc
 CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g3# -fsanitize=address
 LIBMLX	= ./MLX42
 SRCS = main.c map/map_check.c map/path_check1.c map/path_check2.c map/utils1.c \
-	mlx/open_window.c mlx/destroy.c mlx/player.c mlx/background.c mlx/walls.c
+	mlx/open_window.c mlx/destroy.c mlx/player.c mlx/background.c mlx/walls.c mlx/exit.c
 
 LIBS	= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 OBJS =	$(SRCS:.c=.o)

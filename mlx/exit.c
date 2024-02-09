@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 11:45:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 17:14:56 by amirloup         ###   ########.fr       */
+/*   Created: 2024/02/09 17:08:11 by amirloup          #+#    #+#             */
+/*   Updated: 2024/02/09 17:10:46 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	player(t_game *g, t_solong *s)
+void	exit_game(t_game *g, t_solong *s)
 {
-	g->sprite.dino = mlx_load_png("assets/dino2.png");
-	if (!g->sprite.dino)
+	g->sprite.nest = mlx_load_png("assets/nest.png");
+	if (!g->sprite.nest)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
-	g->sprite.player = mlx_texture_to_image(g->mlx, g->sprite.dino);
-	mlx_resize_image(g->sprite.player, 130, 100);
-	mlx_image_to_window(g->mlx, g->sprite.player, (s->p_x * WIDTH / s->width), (s->p_y * HEIGHT / s->height));
+	g->sprite.exit_nest = mlx_texture_to_image(g->mlx, g->sprite.nest);
+	mlx_resize_image(g->sprite.exit_nest, 130, 100);
+	mlx_image_to_window(g->mlx, g->sprite.exit_nest, (s->e_x * WIDTH / s->width), (s->e_y * HEIGHT / s->height));
 }

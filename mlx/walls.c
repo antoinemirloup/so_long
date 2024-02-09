@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:31:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 14:49:18 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:15:05 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	walls(t_game *g, t_solong *s)
 	while (s->y < s->height)
 	{
 		s->x = 0;
-		while (s->x < (ft_strlen(s->map[s->y]) - 1))
+		while (s->x < s->width - 1)
 		{
 			if (s->map[s->y][s->x] == '1')
 			{
-				pos_x = (s->x * 2) * (WIDTH / (2 * (s->width - 1)));
-				pos_y = (s->y * 2) * (HEIGHT / (2 * s->height - 1));
+				pos_x = s->x * (WIDTH / (s->width - 1));
+				pos_y = s->y * (HEIGHT / s->height);
 				mlx_image_to_window(g->mlx, g->sprite.wall, pos_x, pos_y);
 			}
 			s->x++;

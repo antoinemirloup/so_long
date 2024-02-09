@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 14:43:32 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 17:11:45 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	ft_hook(void *param)
 	g = param;
 	if (mlx_is_key_down(g->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(g->mlx);
-	if (mlx_is_key_down(g->mlx, MLX_KEY_W))
+	if (mlx_is_key_down(g->mlx, MLX_KEY_W) && g->data.map[(g->sprite.player->instances[0].y * g->data.height / HEIGHT)][(g->sprite.player->instances[0].x * (g->data.width) / WIDTH)] != '1')
 		g->sprite.player->instances[0].y -= 20;
-	if (mlx_is_key_down(g->mlx, MLX_KEY_S))
+	if (mlx_is_key_down(g->mlx, MLX_KEY_S) && g->data.map[(g->sprite.player->instances[0].y * g->data.height / HEIGHT) + 1][(g->sprite.player->instances[0].x * (g->data.width) / WIDTH)] != '1')
 		g->sprite.player->instances[0].y += 20;
-	if (mlx_is_key_down(g->mlx, MLX_KEY_A))
+	if (mlx_is_key_down(g->mlx, MLX_KEY_A) && g->data.map[(g->sprite.player->instances[0].y * g->data.height / HEIGHT)][((g->sprite.player->instances[0].x * (g->data.width) / WIDTH) - 1)] != '1')
 		g->sprite.player->instances[0].x -= 20;
-	if (mlx_is_key_down(g->mlx, MLX_KEY_D))
+	if (mlx_is_key_down(g->mlx, MLX_KEY_D) && g->data.map[(g->sprite.player->instances[0].y * g->data.height / HEIGHT)][((g->sprite.player->instances[0].x * (g->data.width) / WIDTH) + 1)] != '1')
 		g->sprite.player->instances[0].x += 20;
 }
 
@@ -38,6 +38,7 @@ void	open_window(t_game *g, t_solong *s)
 	background(g);
 	walls(g, s);
 	player(g, s);
+	exit_game(g, s);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);
 	destroy_all(g);

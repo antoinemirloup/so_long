@@ -6,18 +6,18 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 14:30:29 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:33:11 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	count_y(t_solong *g)
+void	count_y(t_solong *data)
 {
 	int			fd;
 	char		*line;
 
-	g->height = 0;
+	data->height = 0;
 	fd = open("./map/map.ber", O_RDONLY);
 	if (fd == -1)
 		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
@@ -26,96 +26,102 @@ void	count_y(t_solong *g)
 	{
 		free(line);
 		line = get_next_line(fd);
-		g->height++;
+		data->height++;
 	}
 	close (fd);
 }
 
-void	get_map(t_solong *g)
+void	get_map(t_solong *data)
 {
 	int		fd;
 	size_t	i;
 
 	i = 0;
-	count_y(g);
+	count_y(data);
 	fd = open("./map/map.ber", O_RDONLY);
 	if (fd == -1)
 		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
-	g->map = malloc(sizeof(char *) * (g->height + 1));
-	if (!g->map)
-		exit((ft_printf("Error\nMem error!\n"), free_tab(g->map), EXIT_FAILURE));
-	while (i < g->height)
+	data->map = malloc(sizeof(char *) * (data->height + 1));
+	if (!data->map)
+		exit((ft_printf("Error\nMem error!\n"), \
+		free_tab(data->map), EXIT_FAILURE));
+	while (i < data->height)
 	{
-		g->map[i] = get_next_line(fd);
-		if (!g->map[i])
+		data->map[i] = get_next_line(fd);
+		if (!data->map[i])
 			exit((ft_printf("Error\nMem error!\n"), \
-			free_tab(g->map), EXIT_FAILURE));
+			free_tab(data->map), EXIT_FAILURE));
 		i++;
 	}
-	g->map[i] = NULL;
-	g->width = ft_strlen(g->map[0]);
+	data->map[i] = NULL;
+	data->width = ft_strlen(data->map[0]);
 	close (fd);
 }
 
-void	check_walls(t_solong *g)
+void	check_walls(t_solong *data)
 {
-	g->y = 0;
-	while (g->y < g->height)
+	data->y = 0;
+	while (data->y < data->height)
 	{
-		g->x = 0;
-		while (g->x < (ft_strlen(g->map[g->y]) - 1))
+		data->x = 0;
+		while (data->x < (ft_strlen(data->map[data->y]) - 1))
 		{
-			if (g->y == 0 || g->y == (g->height - 1))
+			if (data->y == 0 || data->y == (data->height - 1))
 			{
-				if (g->map[g->y][g->x] != '1')
+				if (data->map[data->y][data->x] != '1')
 					exit((ft_printf("Error\nWall got a hole!\n"), \
-					free_tab(g->map), EXIT_FAILURE));
+					free_tab(data->map), EXIT_FAILURE));
 			}
 			else
 			{
-				if (g->map[g->y][0] != '1'
-					|| g->map[g->y][ft_strlen(g->map[g->y]) - 2] != '1')
+				if (data->map[data->y][0] != '1'
+					|| data->map[data->y][ft_strlen(data->map[data->y]) - 2] \
+					!= '1')
 					exit((ft_printf("Error\nWall got a hole!\n"), \
-					free_tab(g->map), EXIT_FAILURE));
+					free_tab(data->map), EXIT_FAILURE));
 			}
-			g->x++;
+			data->x++;
 		}
-		g->y++;
+		data->y++;
 	}
 }
 
-void	check_shape(t_solong *g)
+void	check_shape(t_solong *data)
 {
-	g->y = 0;
-	while (g->y < (g->height - 1))
+	data->y = 0;
+	while (data->y < (data->height - 1))
 	{
-		if (ft_strlen(g->map[g->y]) != ft_strlen(g->map[g->y + 1]))
+		if (ft_strlen(data->map[data->y]) != ft_strlen(data->map[data->y + 1]))
 			exit((ft_printf("Error\nMap is not rectangular!\n"), \
-			free_tab(g->map), EXIT_FAILURE));
-		g->y++;
+			free_tab(data->map), EXIT_FAILURE));
+		data->y++;
 	}
 }
 
-void	check_map(t_solong *g)
+void	check_map(t_solong *data)
 {
-	check_shape(g);
-	g->y = 0;
-	while (g->y < g->height)
+	check_shape(data);
+	data->y = 0;
+	while (data->y < data->height)
 	{
-		g->x = 0;
-		while (g->map[g->y][g->x] != '\0')
+		data->x = 0;
+		while (data->map[data->y][data->x] != '\0')
 		{
-			if (g->map[g->y][g->x] != '1' && g->map[g->y][g->x] != '0'
-				&& g->map[g->y][g->x] != 'P' && g->map[g->y][g->x] != 'C'
-				&& g->map[g->y][g->x] != 'E' && g->map[g->y][g->x] != '\n')
+			if (data->map[data->y][data->x] != '1'
+				&& data->map[data->y][data->x] != '0'
+				&& data->map[data->y][data->x] != 'P'
+				&& data->map[data->y][data->x] != 'C'
+				&& data->map[data->y][data->x] != 'E'
+				&& data->map[data->y][data->x] != '\n')
 				exit((ft_printf("Error\nWrong input!\n"), \
-				free_tab(g->map), EXIT_FAILURE));
-			g->x++;
+				free_tab(data->map), EXIT_FAILURE));
+			data->x++;
 		}
-		g->y++;
+		data->y++;
 	}
-	if (count_c(g, 'P') != 1 || count_c(g, 'E') != 1 || count_c(g, 'C') < 1)
+	if (count_c(data, 'P') != 1 || count_c(data, 'E') != 1
+		|| count_c(data, 'C') < 1)
 		exit((ft_printf("Error\nWrong input!\n"), \
-		free_tab(g->map), EXIT_FAILURE));
-	check_walls(g);
+		free_tab(data->map), EXIT_FAILURE));
+	check_walls(data);
 }
