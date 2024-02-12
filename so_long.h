@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 17:15:04 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:38:31 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 typedef struct s_solong
 {
 	char	**map;
+	char	**map_pix;
 	size_t	x;
 	size_t	y;
 	size_t	height;
@@ -38,6 +39,10 @@ typedef struct s_solong
 	size_t	p_y;
 	size_t	e_x;
 	size_t	e_y;
+	size_t	wall_x;
+	size_t	wall_y;
+	size_t	i;
+	size_t	j;
 }	t_solong;
 
 void	get_map(t_solong *g);
@@ -49,6 +54,8 @@ void	init_x(t_solong *g);
 void	init_y(t_solong *g);
 void	spread_x(t_solong *g);
 void	spread_y(t_solong *g);
+void	get_map_pix(t_solong *data);
+void	fill_map_pix(t_solong *data);
 
 // MLX
 
