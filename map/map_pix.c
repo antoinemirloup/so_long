@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:39:37 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/12 14:38:01 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:21:40 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_map_pix(t_solong *data)
 		if (!data->map_pix[i])
 			exit((ft_printf("Error\nMem error!\n"), \
 			free_tab(data->map), EXIT_FAILURE));
-		while (j < WIDTH)
+		while (j < WIDTH - (WIDTH / data->width))
 		{
 			data->map_pix[i][j] = '0';
 			j++;
@@ -50,7 +50,7 @@ void	fill_map_pix(t_solong *data)
 		{
 			if (data->map[data->y][data->x] == '1')
 			{
-				data->wall_x = data->x * (WIDTH / (data->width - 1));
+				data->wall_x = data->x * (WIDTH / (data->width));
 				data->wall_y = data->y * (HEIGHT / data->height);
 				data->i = data->wall_y;
 				while (data->i < data->wall_y + (HEIGHT / data->height))

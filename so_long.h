@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/12 14:38:31 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:57:07 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "printf/ft_printf.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
-# define WIDTH 2048
-# define HEIGHT 1024
+# define WIDTH 256
+# define HEIGHT 128
 
 // Map check
 
@@ -74,6 +74,10 @@ typedef struct s_sprite
 typedef struct s_game
 {
 	mlx_t		*mlx;
+	int			p_pos_x;
+	int			p_pos_y;
+	int			p_size_x;
+	int			p_size_y;
 	t_sprite	sprite;
 	t_solong	data;
 }	t_game;
@@ -84,5 +88,9 @@ void	player(t_game *g, t_solong *s);
 void	background(t_game *g);
 void	walls(t_game *g, t_solong *s);
 void	exit_game(t_game *g, t_solong *s);
+int		check_up(t_game *g);
+int		check_down(t_game *g);
+int		check_left(t_game *g);
+int		check_rigth(t_game *g);
 
 #endif
