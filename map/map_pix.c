@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:39:37 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/12 17:21:40 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:35:47 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_map_pix(t_solong *data)
 		if (!data->map_pix[i])
 			exit((ft_printf("Error\nMem error!\n"), \
 			free_tab(data->map), EXIT_FAILURE));
-		while (j < WIDTH - (WIDTH / data->width))
+		while (j < WIDTH)
 		{
 			data->map_pix[i][j] = '0';
 			j++;
@@ -40,30 +40,20 @@ void	get_map_pix(t_solong *data)
 	data->map_pix[i] = NULL;
 }
 
-void	fill_map_pix(t_solong *data)
+void	fill_map_pix(t_game *g)
 {
-	data->y = -1;
-	while (++data->y < data->height)
+	int	i;
+	int	j;
+
+	i = g->w_pos_y;
+	while (i < g->w_pos_y + g->w_size_y && g->data.map_pix[i])
 	{
-		data->x = -1;
-		while (++data->x < data->width - 1)
+		j = g->w_pos_x;
+		while (j < g->w_pos_x + g->w_size_x && g->data.map_pix[i][j])
 		{
-			if (data->map[data->y][data->x] == '1')
-			{
-				data->wall_x = data->x * (WIDTH / (data->width));
-				data->wall_y = data->y * (HEIGHT / data->height);
-				data->i = data->wall_y;
-				while (data->i < data->wall_y + (HEIGHT / data->height))
-				{
-					data->j = data->wall_x;
-					while (data->j < data->wall_x + (WIDTH / data-> width))
-					{
-						data->map_pix[data->i][data->j] = '1';
-						data->j++;
-					}
-					data->i++;
-				}
-			}
+			g->data.map_pix[i][j] = '1';
+			j++;
 		}
+		i++;
 	}
 }

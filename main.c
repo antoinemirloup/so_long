@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/12 17:32:01 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:01:13 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	free_tab(g.data.map);
 	get_map(&g.data);
 	get_map_pix(&g.data);
-	fill_map_pix(&g.data);
+	fill_map_pix(&g);
 	open_window(&g, &g.data);
 	// while (g.data.map_pix[i])
 	// {
