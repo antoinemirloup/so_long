@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/14 10:51:29 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/14 10:51:39 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ re:		fclean all
 ex:		re clean
 
 git: 
-	@git add .
+	@git add . > /dev/null 2>&1
 	@git commit -m "$(CURRENT_DATE)"
 	@git push > /dev/null 2>&1
 	@echo "$(RED) GIT UPDATE WAS A HUGE SUCCESS!"
