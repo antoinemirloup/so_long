@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   shadow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 11:45:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 11:47:40 by amirloup         ###   ########.fr       */
+/*   Created: 2024/02/14 11:15:06 by amirloup          #+#    #+#             */
+/*   Updated: 2024/02/14 11:36:42 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	player(t_game *g, t_solong *s)
+void	shadow(t_game *g)
 {
-	g->p_size_x = WIDTH / (float)(s->width - 1);
-	g->p_size_y = HEIGHT / (float)(s->height);
-
-	g->sprite.dino = mlx_load_png("assets/dino2.png");
-	if (!g->sprite.dino)
+	g->sprite.shadow1 = mlx_load_png("assets/shadow1.png");
+	if (!g->sprite.shadow1)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
-	g->sprite.player = mlx_texture_to_image(g->mlx, g->sprite.dino);
-	mlx_resize_image(g->sprite.player, g->p_size_x, g->p_size_y);
-	mlx_image_to_window(g->mlx, g->sprite.player, (s->p_x * WIDTH / (s->width - 1)), (s->p_y * HEIGHT / s->height));
+	g->sprite.sh1 = mlx_texture_to_image(g->mlx, g->sprite.shadow1);
+	mlx_image_to_window(g->mlx, g->sprite.sh1, (g->data.p_x * WIDTH / \
+		(g->data.width - 1)) - (2000 - g->p_size_x / 2), \
+		(g->data.p_y * HEIGHT / g->data.height) - (1000 - g->p_size_y / 2));
 }

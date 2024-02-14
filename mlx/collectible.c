@@ -6,36 +6,36 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 10:46:02 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:14:28 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	loop_collectibles(void *param)
-{
-	t_game	*g;
-	int		i;
+// void	loop_collectibles(void *param)
+// {
+// 	t_game	*g;
+// 	int		i;
 
-	i = 0;
-	g = param;
-	while (i != 4)
-	{
-		i = 0;
-		mlx_image_to_window(g->mlx, g->sprite.batt1, g->c_pos_x, g->c_pos_y);
-		usleep(500000);
-		i++;
-		mlx_image_to_window(g->mlx, g->sprite.batt2, g->c_pos_x, g->c_pos_y);
-		usleep(500000);
-		i++;
-		mlx_image_to_window(g->mlx, g->sprite.batt3, g->c_pos_x, g->c_pos_y);
-		usleep(500000);
-		i++;
-		mlx_image_to_window(g->mlx, g->sprite.batt2, g->c_pos_x, g->c_pos_y);
-		usleep(500000);
-		i++;
-	}
-}
+// 	i = 0;
+// 	g = param;
+// 	while (i != 4)
+// 	{
+// 		i = 0;
+// 		mlx_image_to_window(g->mlx, g->sprite.batt1, g->c_pos_x, g->c_pos_y);
+// 		usleep(500000);
+// 		i++;
+// 		mlx_image_to_window(g->mlx, g->sprite.batt2, g->c_pos_x, g->c_pos_y);
+// 		usleep(500000);
+// 		i++;
+// 		mlx_image_to_window(g->mlx, g->sprite.batt3, g->c_pos_x, g->c_pos_y);
+// 		usleep(500000);
+// 		i++;
+// 		mlx_image_to_window(g->mlx, g->sprite.batt2, g->c_pos_x, g->c_pos_y);
+// 		usleep(500000);
+// 		i++;
+// 	}
+// }
 
 void	collectibles(t_game *g)
 {
@@ -64,7 +64,7 @@ void	collectibles(t_game *g)
 			{
 				g->c_pos_x = g->data.x * (WIDTH / (float)(g->data.width - 1));
 				g->c_pos_y = g->data.y * (HEIGHT / (float)(g->data.height));
-				loop_collectibles(g);
+				mlx_image_to_window(g->mlx, g->sprite.batt1, g->c_pos_x, g->c_pos_y);
 			}
 			g->data.x++;
 		}

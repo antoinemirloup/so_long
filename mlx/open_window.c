@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/13 16:45:13 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:23:20 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,25 @@ void	move(mlx_key_data_t key, void *param)
 	g->p_pos_x = g->sprite.player->instances[0].x;
 	g->p_pos_y = g->sprite.player->instances[0].y;
 	if (key.key == MLX_KEY_W && key.action == 1 && check_up(g) == 1)
+	{
 		g->sprite.player->instances[0].y -= g->p_size_y;
+		g->sprite.sh1->instances[0].y -= g->p_size_y;
+	}
 	if (key.key == MLX_KEY_S && key.action == 1 && check_down(g) == 1)
+	{
 		g->sprite.player->instances[0].y += g->p_size_y;
+		g->sprite.sh1->instances[0].y += g->p_size_y;
+	}
 	if (key.key == MLX_KEY_A && key.action == 1 && check_left(g) == 1)
+	{
 		g->sprite.player->instances[0].x -= g->p_size_x;
+		g->sprite.sh1->instances[0].x -= g->p_size_x;
+	}
 	if (key.key == MLX_KEY_D && key.action == 1 && check_rigth(g) == 1)
+	{
 		g->sprite.player->instances[0].x += g->p_size_x;
+		g->sprite.sh1->instances[0].x += g->p_size_x;
+	}
 }
 
 void	ft_hook(void *param)
@@ -46,10 +58,11 @@ void	open_window(t_game *g, t_solong *s)
 	mlx_set_window_pos(g->mlx, 1000, 500);
 	if (!g->mlx)
 		exit((ft_printf("Error\nInitializing MLX!\n"), EXIT_FAILURE));
-	// background(g);
+	background(g);
 	walls(g, s);
 	// collectibles(g, s);
 	player(g, s);
+	shadow(g);
 	// exit_game(g, s);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);

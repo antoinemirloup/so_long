@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/13 16:46:23 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:53:36 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_sprite
 	mlx_texture_t	*bat1;
 	mlx_texture_t	*bat2;
 	mlx_texture_t	*bat3;
+	mlx_texture_t	*shadow1;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
@@ -72,15 +73,16 @@ typedef struct s_sprite
 	mlx_image_t		*batt1;
 	mlx_image_t		*batt2;
 	mlx_image_t		*batt3;
+	mlx_image_t		*sh1;
 }	t_sprite;
 
 typedef struct s_game
 {
 	mlx_t		*mlx;
-	int			p_pos_x;
-	int			p_pos_y;
-	int			p_size_x;
-	int			p_size_y;
+	float		p_pos_x;
+	float		p_pos_y;
+	float		p_size_x;
+	float		p_size_y;
 	float		w_pos_x;
 	float		w_pos_y;
 	float		w_size_x;
@@ -99,6 +101,7 @@ void	player(t_game *g, t_solong *s);
 void	background(t_game *g);
 void	walls(t_game *g, t_solong *s);
 void	collectibles(t_game *g);
+void	shadow(t_game *g);
 void	exit_game(t_game *g, t_solong *s);
 int		check_up(t_game *g);
 int		check_down(t_game *g);
