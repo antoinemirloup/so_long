@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 11:14:28 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:32:17 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@
 
 void	collectibles(t_game *g)
 {
-
 	g->c_size_y = (HEIGHT / g->data.height) / 1.2;
 	g->c_size_x = g->w_size_y / 1.98;
-
 	g->sprite.bat1 = mlx_load_png("assets/battery1.png");
 	g->sprite.bat2 = mlx_load_png("assets/battery2.png");
 	g->sprite.bat3 = mlx_load_png("assets/battery3.png");
