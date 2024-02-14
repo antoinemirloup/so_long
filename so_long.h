@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 11:53:36 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:40:22 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <math.h>
 
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
@@ -66,6 +67,9 @@ typedef struct s_sprite
 	mlx_texture_t	*bat2;
 	mlx_texture_t	*bat3;
 	mlx_texture_t	*shadow1;
+	mlx_texture_t	*shadow2;
+	mlx_texture_t	*shadow3;
+	mlx_texture_t	*shadow4;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
@@ -74,6 +78,9 @@ typedef struct s_sprite
 	mlx_image_t		*batt2;
 	mlx_image_t		*batt3;
 	mlx_image_t		*sh1;
+	mlx_image_t		*sh2;
+	mlx_image_t		*sh3;
+	mlx_image_t		*sh4;
 }	t_sprite;
 
 typedef struct s_game

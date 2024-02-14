@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:45:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 11:47:40 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:37:19 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	player(t_game *g, t_solong *s)
 	g->p_size_x = WIDTH / (float)(s->width - 1);
 	g->p_size_y = HEIGHT / (float)(s->height);
 
-	g->sprite.dino = mlx_load_png("assets/dino2.png");
+	g->sprite.dino = mlx_load_png("assets/red_square.png");
 	if (!g->sprite.dino)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
 	g->sprite.player = mlx_texture_to_image(g->mlx, g->sprite.dino);
