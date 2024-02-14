@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/14 10:43:56 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/14 10:45:33 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,3 +60,4 @@ git:
 	git add .
 	git commit -m "$(CURRENT_DATE)"
 	git push
+	@echo "$(RED) GIT UPDATE WAS A HUGE SUCCESS!"
