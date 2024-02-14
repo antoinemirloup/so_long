@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/13 13:01:13 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:15:58 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 	t_game		g;
 
 	i = 0;
+	g.c = 0;
 	get_map(&g.data);
 	check_map(&g.data);
 	map_doable(&g.data);

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:31:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 13:48:34 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:59:42 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	walls(t_game *g, t_solong *s)
 {
-	g->w_size_x = WIDTH / (float)(s->width - 1);
-	g->w_size_y = HEIGHT / (float)(s->height);
+	g->w_size_x = round(WIDTH / (float)(s->width - 1));
+	g->w_size_y = round(HEIGHT / (float)(s->height));
 
 	g->sprite.bush = mlx_load_png("assets/bush.png");
 	if (!g->sprite.bush)

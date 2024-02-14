@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:45:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 13:37:19 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:59:59 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	player(t_game *g, t_solong *s)
 {
-	g->p_size_x = WIDTH / (float)(s->width - 1);
-	g->p_size_y = HEIGHT / (float)(s->height);
+	g->p_size_x = round(WIDTH / (float)(s->width - 1));
+	g->p_size_y = round(HEIGHT / (float)(s->height));
 
 	g->sprite.dino = mlx_load_png("assets/red_square.png");
 	if (!g->sprite.dino)

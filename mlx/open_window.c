@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 14:48:26 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:19:42 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,29 @@ void	move(mlx_key_data_t key, void *param)
 	g = param;
 	g->p_pos_x = g->sprite.player->instances[0].x;
 	g->p_pos_y = g->sprite.player->instances[0].y;
+	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
+	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	if (key.key == MLX_KEY_W && key.action == 1 && check_up(g) == 1)
 	{
 		g->sprite.player->instances[0].y -= g->p_size_y;
-		g->sprite.sh1->instances[0].y -= g->p_size_y;
-		printf("%c\n", g->data.map[(int) g->p_pos_y * g->data.height / HEIGHT][(int) g->p_pos_x * (g->data.width) / WIDTH]);
+		g->sprite.sh->instances[0].y -= g->p_size_y;
 	}
 	if (key.key == MLX_KEY_S && key.action == 1 && check_down(g) == 1)
 	{
 		g->sprite.player->instances[0].y += g->p_size_y;
-		g->sprite.sh1->instances[0].y += g->p_size_y;
-		printf("%c\n", g->data.map[(int) g->p_pos_y * g->data.height / HEIGHT][(int) g->p_pos_x * (g->data.width) / WIDTH]);
+		g->sprite.sh->instances[0].y += g->p_size_y;
 	}
 	if (key.key == MLX_KEY_A && key.action == 1 && check_left(g) == 1)
 	{
 		g->sprite.player->instances[0].x -= g->p_size_x;
-		g->sprite.sh1->instances[0].x -= g->p_size_x;
-		printf("%c\n", g->data.map[(int) g->p_pos_y * g->data.height / HEIGHT][(int) g->p_pos_x * (g->data.width) / WIDTH]);
+		g->sprite.sh->instances[0].x -= g->p_size_x;
 	}
 	if (key.key == MLX_KEY_D && key.action == 1 && check_rigth(g) == 1)
 	{
-		g->sprite.player->instances[0].x += g->p_size_x + 1;
-		g->sprite.sh1->instances[0].x += g->p_size_x;
-		printf("%c\n", g->data.map[(int) g->p_pos_y * g->data.height / HEIGHT][(int) g->p_pos_x * (g->data.width) / WIDTH]);
+		g->sprite.player->instances[0].x += g->p_size_x;
+		g->sprite.sh->instances[0].x += g->p_size_x;
 	}
+	shadow(g);
 }
 
 void	ft_hook(void *param)
@@ -65,7 +64,7 @@ void	open_window(t_game *g, t_solong *s)
 	walls(g, s);
 	collectibles(g);
 	player(g, s);
-	shadow(g);
+	set_shadow(g);
 	// exit_game(g, s);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);

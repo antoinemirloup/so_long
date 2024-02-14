@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 14:40:22 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:19:03 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ typedef struct s_sprite
 	mlx_texture_t	*bat1;
 	mlx_texture_t	*bat2;
 	mlx_texture_t	*bat3;
-	mlx_texture_t	*shadow1;
-	mlx_texture_t	*shadow2;
-	mlx_texture_t	*shadow3;
-	mlx_texture_t	*shadow4;
+	mlx_texture_t	*shadow;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
@@ -77,27 +74,27 @@ typedef struct s_sprite
 	mlx_image_t		*batt1;
 	mlx_image_t		*batt2;
 	mlx_image_t		*batt3;
-	mlx_image_t		*sh1;
-	mlx_image_t		*sh2;
-	mlx_image_t		*sh3;
-	mlx_image_t		*sh4;
+	mlx_image_t		*sh;
 }	t_sprite;
 
 typedef struct s_game
 {
 	mlx_t		*mlx;
-	float		p_pos_x;
-	float		p_pos_y;
-	float		p_size_x;
-	float		p_size_y;
-	float		w_pos_x;
-	float		w_pos_y;
-	float		w_size_x;
-	float		w_size_y;
-	float		c_pos_x;
-	float		c_pos_y;
-	float		c_size_x;
-	float		c_size_y;
+	int			p_pos_x;
+	int			p_pos_y;
+	int			p_size_x;
+	int			p_size_y;
+	int			w_pos_x;
+	int			w_pos_y;
+	int			w_size_x;
+	int			w_size_y;
+	int			c_pos_x;
+	int			c_pos_y;
+	int			c_size_x;
+	int			c_size_y;
+	int			p_coord_x;
+	int			p_coord_y;
+	int			c;
 	t_sprite	sprite;
 	t_solong	data;
 }	t_game;
@@ -115,5 +112,6 @@ int		check_down(t_game *g);
 int		check_left(t_game *g);
 int		check_rigth(t_game *g);
 void	fill_map_pix(t_game *g);
+void	set_shadow(t_game *g);
 
 #endif
