@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/13 15:16:39 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/14 10:43:56 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ LIBS	= MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm
 OBJS =	$(SRCS:.c=.o)
 
 RM = @rm -rf
+
+CURRENT_DATE = $(shell date +"%Y-%m-%d %H:%M")
 
 RED = \e[1;91m
 GREEN = \e[1;92m
@@ -53,3 +55,8 @@ fclean:
 re:		fclean all
 
 ex:		re clean
+
+git: 
+	git add .
+	git commit -m "$(CURRENT_DATE)"
+	git push
