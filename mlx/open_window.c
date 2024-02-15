@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 17:19:42 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/15 10:17:46 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,25 @@ void	move(mlx_key_data_t key, void *param)
 	if (key.key == MLX_KEY_W && key.action == 1 && check_up(g) == 1)
 	{
 		g->sprite.player->instances[0].y -= g->p_size_y;
-		g->sprite.sh->instances[0].y -= g->p_size_y;
+		g->sprite.fo->instances[0].y -= g->p_size_y;
 	}
 	if (key.key == MLX_KEY_S && key.action == 1 && check_down(g) == 1)
 	{
 		g->sprite.player->instances[0].y += g->p_size_y;
-		g->sprite.sh->instances[0].y += g->p_size_y;
+		g->sprite.fo->instances[0].y += g->p_size_y;
 	}
 	if (key.key == MLX_KEY_A && key.action == 1 && check_left(g) == 1)
 	{
 		g->sprite.player->instances[0].x -= g->p_size_x;
-		g->sprite.sh->instances[0].x -= g->p_size_x;
+		g->sprite.fo->instances[0].x -= g->p_size_x;
 	}
 	if (key.key == MLX_KEY_D && key.action == 1 && check_rigth(g) == 1)
 	{
 		g->sprite.player->instances[0].x += g->p_size_x;
-		g->sprite.sh->instances[0].x += g->p_size_x;
+		g->sprite.fo->instances[0].x += g->p_size_x;
 	}
-	shadow(g);
+	fog(g);
+	// loop_collectibles(g);
 }
 
 void	ft_hook(void *param)
@@ -64,7 +65,7 @@ void	open_window(t_game *g, t_solong *s)
 	walls(g, s);
 	collectibles(g);
 	player(g, s);
-	set_shadow(g);
+	set_fog(g);
 	// exit_game(g, s);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);

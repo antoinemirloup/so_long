@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 17:19:03 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/15 10:14:08 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_sprite
 	mlx_texture_t	*bat1;
 	mlx_texture_t	*bat2;
 	mlx_texture_t	*bat3;
-	mlx_texture_t	*shadow;
+	mlx_texture_t	*fog;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
@@ -74,7 +74,8 @@ typedef struct s_sprite
 	mlx_image_t		*batt1;
 	mlx_image_t		*batt2;
 	mlx_image_t		*batt3;
-	mlx_image_t		*sh;
+	mlx_image_t		*batt;
+	mlx_image_t		*fo;
 }	t_sprite;
 
 typedef struct s_game
@@ -105,13 +106,14 @@ void	player(t_game *g, t_solong *s);
 void	background(t_game *g);
 void	walls(t_game *g, t_solong *s);
 void	collectibles(t_game *g);
-void	shadow(t_game *g);
+void	loop_collectibles(t_game *g);
+void	fog(t_game *g);
 void	exit_game(t_game *g, t_solong *s);
 int		check_up(t_game *g);
 int		check_down(t_game *g);
 int		check_left(t_game *g);
 int		check_rigth(t_game *g);
 void	fill_map_pix(t_game *g);
-void	set_shadow(t_game *g);
+void	set_fog(t_game *g);
 
 #endif
