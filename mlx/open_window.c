@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 10:17:46 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/15 10:56:58 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	open_window(t_game *g, t_solong *s)
 	collectibles(g);
 	player(g, s);
 	set_fog(g);
-	// exit_game(g, s);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);
 	destroy_all(g);

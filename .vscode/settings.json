@@ -7,5 +7,12 @@
         "ranges": "c",
         "span": "c",
         "random": "c"
-    }
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/amirloup/Documents/so_long",
+            "binaryPath": "/home/amirloup/Documents/so_long/so_long",
+            "binaryArgs": []
+        }
+    ]
 }

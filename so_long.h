@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 10:14:08 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:03:25 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	init_x(t_solong *g);
 void	init_y(t_solong *g);
 void	spread_x(t_solong *g);
 void	spread_y(t_solong *g);
-void	get_map_pix(t_solong *data);
 
 // MLX
 
@@ -95,7 +94,8 @@ typedef struct s_game
 	int			c_size_y;
 	int			p_coord_x;
 	int			p_coord_y;
-	int			c;
+	size_t		c_tot;
+	size_t		c;
 	t_sprite	sprite;
 	t_solong	data;
 }	t_game;
@@ -108,7 +108,7 @@ void	walls(t_game *g, t_solong *s);
 void	collectibles(t_game *g);
 void	loop_collectibles(t_game *g);
 void	fog(t_game *g);
-void	exit_game(t_game *g, t_solong *s);
+void	exit_game(t_game *g);
 int		check_up(t_game *g);
 int		check_down(t_game *g);
 int		check_left(t_game *g);

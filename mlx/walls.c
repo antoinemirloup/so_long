@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:31:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/14 17:31:09 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/15 10:55:05 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	walls(t_game *g, t_solong *s)
 			{
 				g->w_pos_x = s->x * (WIDTH / (float)(s->width - 1));
 				g->w_pos_y = s->y * (HEIGHT / (float)(s->height));
-				fill_map_pix(g);
 				mlx_image_to_window(g->mlx, g->sprite.wall, g->w_pos_x, \
 					g->w_pos_y);
 			}
