@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 11:03:25 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:32:08 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,45 @@ typedef struct s_sprite
 	mlx_texture_t	*bat2;
 	mlx_texture_t	*bat3;
 	mlx_texture_t	*fog;
+	mlx_texture_t	*success;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
 	mlx_image_t		*exit_nest;
-	mlx_image_t		*batt1;
+	mlx_image_t		*batt1q;
+	mlx_image_t		*batt1r;
+	mlx_image_t		*batt1s;
 	mlx_image_t		*batt2;
 	mlx_image_t		*batt3;
 	mlx_image_t		*batt;
 	mlx_image_t		*fo;
+	mlx_image_t		*succes;
+	mlx_image_t		*counter;
 }	t_sprite;
+
+typedef struct s_counter
+{
+	mlx_texture_t	*zero;
+	mlx_texture_t	*one;
+	mlx_texture_t	*two;
+	mlx_texture_t	*three;
+	mlx_texture_t	*four;
+	mlx_texture_t	*five;
+	mlx_texture_t	*six;
+	mlx_texture_t	*seven;
+	mlx_texture_t	*eigth;
+	mlx_texture_t	*nine;
+	mlx_image_t		*c0;
+	mlx_image_t		*c1;
+	mlx_image_t		*c2;
+	mlx_image_t		*c3;
+	mlx_image_t		*c4;
+	mlx_image_t		*c5;
+	mlx_image_t		*c6;
+	mlx_image_t		*c7;
+	mlx_image_t		*c8;
+	mlx_image_t		*c9;
+}	t_counter;
 
 typedef struct s_game
 {
@@ -96,8 +125,10 @@ typedef struct s_game
 	int			p_coord_y;
 	size_t		c_tot;
 	size_t		c;
+	int			count;
 	t_sprite	sprite;
 	t_solong	data;
+	t_counter	co;
 }	t_game;
 
 void	open_window(t_game *g, t_solong *s);
@@ -105,15 +136,17 @@ void	destroy_all(t_game *g);
 void	player(t_game *g, t_solong *s);
 void	background(t_game *g);
 void	walls(t_game *g, t_solong *s);
+void	set_collectibles(t_game *g);
 void	collectibles(t_game *g);
-void	loop_collectibles(t_game *g);
 void	fog(t_game *g);
 void	exit_game(t_game *g);
+void	set_exit(t_game *g);
 int		check_up(t_game *g);
 int		check_down(t_game *g);
 int		check_left(t_game *g);
 int		check_rigth(t_game *g);
-void	fill_map_pix(t_game *g);
 void	set_fog(t_game *g);
+void	numbers(t_game *g);
+
 
 #endif
