@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 09:54:44 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:35:59 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	move(mlx_key_data_t key, void *param)
 	t_game	*g;
 
 	g = param;
-	printf("%d\n", g->count);
 	g->p_pos_x = g->sprite.player->instances[0].x;
 	g->p_pos_y = g->sprite.player->instances[0].y;
 	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);

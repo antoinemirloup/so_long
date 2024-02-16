@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:22:12 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 10:17:07 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:20:40 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,15 @@ void	numbers(t_game *g)
 	if (!g->co.frame)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
 	g->co.fram = mlx_texture_to_image(g->mlx, g->co.frame);
-	mlx_resize_image(g->co.fram, WIDTH / 10, HEIGHT / 5);
-	mlx_image_to_window(g->mlx, g->co.fram, (WIDTH - (WIDTH / 10)), 0);
+	mlx_resize_image(g->co.fram, WIDTH / 10, HEIGHT / 10);
+	mlx_image_to_window(g->mlx, g->co.fram, (WIDTH - (WIDTH / 10)), 5);
 	mlx_delete_image(g->mlx, g->co.tab[0]);
 	mlx_delete_image(g->mlx, g->co.tab[1]);
 	mlx_delete_image(g->mlx, g->co.tab[2]);
-	disp_unit(g);
-	disp_ten(g);
-	disp_hundred(g);
-	mlx_image_to_window(g->mlx, g->co.tab[0], 150, 0);
-	mlx_image_to_window(g->mlx, g->co.tab[1], 100, 0);
-	mlx_image_to_window(g->mlx, g->co.tab[2], 50, 0);
+	disp_unit(g, 0);
+	disp_ten(g, 0);
+	disp_hundred(g, 0);
+	mlx_image_to_window(g->mlx, g->co.tab[0], 1910, 20);
+	mlx_image_to_window(g->mlx, g->co.tab[1], 1860, 20);
+	mlx_image_to_window(g->mlx, g->co.tab[2], 1810, 20);
 }

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:08:11 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 14:30:41 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:24:53 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,21 @@ void	exit_game(t_game *g)
 {
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'F')
 	{
+		mlx_image_to_window(g->mlx, g->sprite.succes, WIDTH / 2 - 375, HEIGHT \
+			/ 2 - 200);
 		mlx_delete_image(g->mlx, g->sprite.fo);
-		mlx_image_to_window(g->mlx, g->sprite.succes, WIDTH / 2 - 375, HEIGHT / 2 - 85);
+		// mlx_delete_image(g->mlx, g->co.tab[0]);
+		// mlx_delete_image(g->mlx, g->co.tab[1]);
+		// mlx_delete_image(g->mlx, g->co.tab[2]);
+		disp_unit(g, 1);
+		disp_ten(g, 1);
+		disp_hundred(g, 1);
+		mlx_resize_image(g->co.result_u, 200, 150);
+		mlx_resize_image(g->co.result_t, 200, 150);
+		mlx_resize_image(g->co.result_h, 200, 150);
+		mlx_image_to_window(g->mlx, g->co.result_u, WIDTH / 2 + 125, HEIGHT / 2 + 100);
+		mlx_image_to_window(g->mlx, g->co.result_t, WIDTH / 2 - 100, HEIGHT / 2 + 100);
+		mlx_image_to_window(g->mlx, g->co.result_h, WIDTH / 2 - 325, HEIGHT / 2 + 100);
 	}
 }
 

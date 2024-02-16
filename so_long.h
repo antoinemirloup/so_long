@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 10:13:30 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:27:54 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef struct s_counter
 	mlx_image_t		*c8;
 	mlx_image_t		*c9;
 	mlx_image_t		*fram;
+	mlx_image_t		*result[3];
 	mlx_image_t		*tab[3];
 }	t_counter;
 
@@ -150,8 +151,8 @@ int		check_left(t_game *g);
 int		check_rigth(t_game *g);
 void	set_fog(t_game *g);
 void	numbers(t_game *g);
-void	disp_unit(t_game *g);
-void	disp_ten(t_game *g);
-void	disp_hundred(t_game *g);
+void	disp_unit(t_game *g, int b);
+void	disp_ten(t_game *g, int b);
+void	disp_hundred(t_game *g, int b);
 
 #endif
