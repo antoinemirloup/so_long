@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 09:15:31 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:13:30 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_counter
 	mlx_texture_t	*seven;
 	mlx_texture_t	*eigth;
 	mlx_texture_t	*nine;
+	mlx_texture_t	*frame;
 	mlx_image_t		*c0;
 	mlx_image_t		*c1;
 	mlx_image_t		*c2;
@@ -104,6 +105,7 @@ typedef struct s_counter
 	mlx_image_t		*c7;
 	mlx_image_t		*c8;
 	mlx_image_t		*c9;
+	mlx_image_t		*fram;
 	mlx_image_t		*tab[3];
 }	t_counter;
 
