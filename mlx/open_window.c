@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 17:06:28 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:54:44 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	move(mlx_key_data_t key, void *param)
 	t_game	*g;
 
 	g = param;
+	printf("%d\n", g->count);
 	g->p_pos_x = g->sprite.player->instances[0].x;
 	g->p_pos_y = g->sprite.player->instances[0].y;
 	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
@@ -45,7 +46,6 @@ void	move(mlx_key_data_t key, void *param)
 		g->sprite.fo->instances[0].x += g->p_size_x;
 		g->count++;
 	}
-	printf("%s\n", ft_itoa(g->count));
 	collectibles(g);
 	fog(g);
 	numbers(g);

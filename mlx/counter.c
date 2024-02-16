@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:22:12 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 17:27:38 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:59:49 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,14 @@ void	set_numbers(t_game *g)
 
 void	numbers(t_game *g)
 {
-	char	*str;
-	int		size;
-
-	str = ft_itoa(g->count);
-	size = ft_strlen(str);
 	set_numbers(g);
-	if (size == 1)
-		disp_unit(g, str[0]);
-	else if (size == 2)
-	{
-		disp_ten(g, str[0]);
-		disp_unit(g, str[1]);
-	}
-	else if (size == 3)
-	{
-		disp_hundred(g, str[0]);
-		disp_ten(g, str[1]);
-		disp_unit(g, str[2]);
-	}
+	mlx_delete_image(g->mlx, g->co.tab[0]);
+	mlx_delete_image(g->mlx, g->co.tab[1]);
+	mlx_delete_image(g->mlx, g->co.tab[2]);
+	disp_unit(g);
+	disp_ten(g);
+	disp_hundred(g);
+	mlx_image_to_window(g->mlx, g->co.tab[0], 150, 0);
+	mlx_image_to_window(g->mlx, g->co.tab[1], 100, 0);
+	mlx_image_to_window(g->mlx, g->co.tab[2], 50, 0);
 }
