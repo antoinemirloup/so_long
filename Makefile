@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/15 17:25:00 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/16 13:20:33 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,4 +60,4 @@ git:
 	@git add . > /dev/null 2>&1
 	@git commit -m "$(CURRENT_DATE)" > /dev/null 2>&1
 	@git push > /dev/null 2>&1
-	@echo "$(RED) GIT UPDATE WAS A HUGE SUCCESS!"
+	@echo "$(GREEN) GIT UPDATE WAS A HUGE SUCCESS!"
