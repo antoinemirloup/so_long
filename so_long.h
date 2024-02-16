@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 13:07:15 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:50:38 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ typedef struct s_game
 	int			p_coord_y;
 	size_t		c_tot;
 	size_t		c;
+	int			i;
 	int			count;
 	int			success;
 	t_sprite	sprite;
@@ -157,5 +158,9 @@ void	set_numbers(t_game *g);
 void	disp_unit(t_game *g);
 void	disp_ten(t_game *g);
 void	disp_hundred(t_game *g);
+void	move_up(t_game *g);
+void	move_down(t_game *g);
+void	move_left(t_game *g);
+void	move_rigth(t_game *g);
 
 #endif

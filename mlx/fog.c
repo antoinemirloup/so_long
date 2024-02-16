@@ -31,7 +31,8 @@ void	first_fog(t_game *g)
 	mlx_resize_image(g->sprite.fo, 6000, 3000);
 	if (g->c == 0)
 	{
-		set_exit(g);
+		mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * WIDTH / \
+			g->data.width), (g->data.e_y * HEIGHT / g->data.height));
 		g->data.map[g->data.e_y][g->data.e_x] = 'F';
 	}
 	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
@@ -47,7 +48,8 @@ void	second_fog(t_game *g)
 	mlx_resize_image(g->sprite.fo, 8000, 4000);
 	if (g->c == 0)
 	{
-		set_exit(g);
+		mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * WIDTH / \
+			g->data.width), (g->data.e_y * HEIGHT / g->data.height));
 		g->data.map[g->data.e_y][g->data.e_x] = 'F';
 	}
 	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
@@ -63,7 +65,8 @@ void	third_fog(t_game *g)
 	mlx_resize_image(g->sprite.fo, 10000, 5000);
 	if (g->c == 0)
 	{
-		set_exit(g);
+		mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * WIDTH / \
+			g->data.width), (g->data.e_y * HEIGHT / g->data.height));
 		g->data.map[g->data.e_y][g->data.e_x] = 'F';
 	}
 	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \

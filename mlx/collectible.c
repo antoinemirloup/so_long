@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/15 13:25:29 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:45:14 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,18 @@ void	collectibles(t_game *g)
 
 void	place_collectibles(t_game *g)
 {
-	int	i;
-
-	i = 0;
-	g->data.y = 0;
-	while (g->data.y < g->data.height)
+	g->i = 0;
+	g->data.y = -1;
+	while (++g->data.y < g->data.height)
 	{
-		g->data.x = 0;
-		while (g->data.x < g->data.width)
+		g->data.x = -1;
+		while (++g->data.x < g->data.width)
 		{
 			if (g->data.map[g->data.y][g->data.x] == 'C')
 			{
 				g->c_pos_x = g->data.x * (WIDTH / (float)(g->data.width - 1));
 				g->c_pos_y = g->data.y * (HEIGHT / (float)(g->data.height));
-				g->data.map[g->data.y][g->data.x] = 'Q' + i;
+				g->data.map[g->data.y][g->data.x] = 'Q' + g->i;
 				if (g->data.map[g->data.y][g->data.x] == 'Q')
 					mlx_image_to_window(g->mlx, g->sprite.batt1q, g->c_pos_x, \
 						g->c_pos_y);
@@ -47,11 +45,9 @@ void	place_collectibles(t_game *g)
 				else if (g->data.map[g->data.y][g->data.x] == 'S')
 					mlx_image_to_window(g->mlx, g->sprite.batt1s, g->c_pos_x, \
 						g->c_pos_y);
-				i++;
+				g->i++;
 			}
-			g->data.x++;
 		}
-		g->data.y++;
 	}
 }
 
