@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 13:50:38 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:39:44 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,12 @@ typedef struct s_sprite
 	mlx_image_t		*batt1q;
 	mlx_image_t		*batt1r;
 	mlx_image_t		*batt1s;
-	mlx_image_t		*batt2;
-	mlx_image_t		*batt3;
-	mlx_image_t		*batt;
+	mlx_image_t		*batt2q;
+	mlx_image_t		*batt2r;
+	mlx_image_t		*batt2s;
+	mlx_image_t		*batt3q;
+	mlx_image_t		*batt3r;
+	mlx_image_t		*batt3s;
 	mlx_image_t		*fo;
 	mlx_image_t		*succes;
 	mlx_image_t		*counter;
@@ -124,6 +127,12 @@ typedef struct s_game
 	int			w_size_y;
 	int			c_pos_x;
 	int			c_pos_y;
+	int			q_pos_x;
+	int			q_pos_y;
+	int			r_pos_x;
+	int			r_pos_y;
+	int			s_pos_x;
+	int			s_pos_y;
 	int			c_size_x;
 	int			c_size_y;
 	int			p_coord_x;
@@ -133,6 +142,8 @@ typedef struct s_game
 	int			i;
 	int			count;
 	int			success;
+	double		time;
+	int			frame;
 	t_sprite	sprite;
 	t_solong	data;
 	t_counter	co;
@@ -144,6 +155,7 @@ void	player(t_game *g, t_solong *s);
 void	background(t_game *g);
 void	walls(t_game *g, t_solong *s);
 void	set_collectibles(t_game *g);
+void	load_collectibles(t_game *g);
 void	collectibles(t_game *g);
 void	fog(t_game *g);
 void	exit_game(t_game *g);

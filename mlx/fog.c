@@ -32,7 +32,7 @@ void	first_fog(t_game *g)
 	if (g->c == 0)
 	{
 		mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * WIDTH / \
-			g->data.width), (g->data.e_y * HEIGHT / g->data.height));
+		g->data.width), (g->data.e_y * HEIGHT / g->data.height));
 		g->data.map[g->data.e_y][g->data.e_x] = 'F';
 	}
 	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \

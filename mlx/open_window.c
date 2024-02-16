@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 13:53:02 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:46:17 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	ft_hook(void *param)
 	t_game	*g;
 
 	g = param;
+	g->time += g->mlx->delta_time;
+	if (g->time > 0.03)
+	{
+		refresh(g);
+		g->time = 0;
+	}
 	if (mlx_is_key_down(g->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(g->mlx);
 	mlx_key_hook(g->mlx, move, (void *)g);
@@ -57,9 +63,9 @@ void	open_window(t_game *g, t_solong *s)
 		exit((ft_printf("Error\nInitializing MLX!\n"), EXIT_FAILURE));
 	background(g);
 	walls(g, s);
-	set_collectibles(g);
-	set_exit(g);
+	load_collectibles(g);
 	set_fog(g);
+	set_exit(g);
 	player(g, s);
 	set_numbers(g);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);

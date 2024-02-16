@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 15:33:11 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:32:58 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	get_map(t_solong *data)
 		i++;
 	}
 	data->map[i] = NULL;
-	data->width = ft_strlen(data->map[0]);
+	if (data->map[0] != NULL)
+		data->width = ft_strlen(data->map[0]);
 	close (fd);
 }
 
@@ -88,6 +89,9 @@ void	check_walls(t_solong *data)
 
 void	check_shape(t_solong *data)
 {
+	if (data->map[0] == NULL)
+		exit((ft_printf("Error\nMap is empty!\n"), \
+			free_tab(data->map), EXIT_FAILURE));
 	data->y = 0;
 	while (data->y < (data->height - 1))
 	{
