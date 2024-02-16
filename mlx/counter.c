@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:22:12 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 11:20:40 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:18:16 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 void	resize_numbers(t_game *g)
 {
+	g->co.c0 = mlx_texture_to_image(g->mlx, g->co.zero);
+	g->co.c1 = mlx_texture_to_image(g->mlx, g->co.one);
+	g->co.c2 = mlx_texture_to_image(g->mlx, g->co.two);
+	g->co.c3 = mlx_texture_to_image(g->mlx, g->co.three);
+	g->co.c4 = mlx_texture_to_image(g->mlx, g->co.four);
+	g->co.c5 = mlx_texture_to_image(g->mlx, g->co.five);
+	g->co.c6 = mlx_texture_to_image(g->mlx, g->co.six);
+	g->co.c7 = mlx_texture_to_image(g->mlx, g->co.seven);
+	g->co.c8 = mlx_texture_to_image(g->mlx, g->co.eigth);
+	g->co.c9 = mlx_texture_to_image(g->mlx, g->co.nine);
 	mlx_resize_image(g->co.c0, WIDTH / (30), HEIGHT / 15);
 	mlx_resize_image(g->co.c1, WIDTH / (30), HEIGHT / 15);
 	mlx_resize_image(g->co.c2, WIDTH / (30), HEIGHT / 15);
@@ -42,22 +52,13 @@ void	set_numbers(t_game *g)
 		|| !g->co.five || !g->co.six || !g->co.seven || !g->co.eigth
 		|| !g->co.nine)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
-	g->co.c0 = mlx_texture_to_image(g->mlx, g->co.zero);
-	g->co.c1 = mlx_texture_to_image(g->mlx, g->co.one);
-	g->co.c2 = mlx_texture_to_image(g->mlx, g->co.two);
-	g->co.c3 = mlx_texture_to_image(g->mlx, g->co.three);
-	g->co.c4 = mlx_texture_to_image(g->mlx, g->co.four);
-	g->co.c5 = mlx_texture_to_image(g->mlx, g->co.five);
-	g->co.c6 = mlx_texture_to_image(g->mlx, g->co.six);
-	g->co.c7 = mlx_texture_to_image(g->mlx, g->co.seven);
-	g->co.c8 = mlx_texture_to_image(g->mlx, g->co.eigth);
-	g->co.c9 = mlx_texture_to_image(g->mlx, g->co.nine);
 	resize_numbers(g);
+	numbers(g);
 }
 
 void	numbers(t_game *g)
 {
-	set_numbers(g);
+	resize_numbers(g);
 	g->co.frame = mlx_load_png("assets/frame.png");
 	if (!g->co.frame)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
@@ -67,9 +68,9 @@ void	numbers(t_game *g)
 	mlx_delete_image(g->mlx, g->co.tab[0]);
 	mlx_delete_image(g->mlx, g->co.tab[1]);
 	mlx_delete_image(g->mlx, g->co.tab[2]);
-	disp_unit(g, 0);
-	disp_ten(g, 0);
-	disp_hundred(g, 0);
+	disp_unit(g);
+	disp_ten(g);
+	disp_hundred(g);
 	mlx_image_to_window(g->mlx, g->co.tab[0], 1910, 20);
 	mlx_image_to_window(g->mlx, g->co.tab[1], 1860, 20);
 	mlx_image_to_window(g->mlx, g->co.tab[2], 1810, 20);
