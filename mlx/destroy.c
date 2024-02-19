@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 13:40:23 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:22:40 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	destroy_all(t_game *g)
 	mlx_delete_texture(g->co.eigth);
 	mlx_delete_texture(g->co.nine);
 	mlx_delete_texture(g->sprite.success);
-	mlx_delete_texture(g->co.frame);
 	mlx_delete_image(g->mlx, g->sprite.player);
 	mlx_delete_image(g->mlx, g->sprite.background);
 	mlx_delete_image(g->mlx, g->sprite.wall);
@@ -66,5 +65,4 @@ void	destroy_all(t_game *g)
 	mlx_delete_image(g->mlx, g->sprite.battq);
 	mlx_delete_image(g->mlx, g->sprite.battr);
 	mlx_delete_image(g->mlx, g->sprite.batts);
-	mlx_delete_image(g->mlx, g->co.fram);
 }

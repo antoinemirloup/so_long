@@ -24,6 +24,7 @@ void	set_fog(t_game *g)
 
 void	first_fog(t_game *g)
 {
+	mlx_delete_image(g->mlx, g->sprite.fo);
 	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
 	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
 	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
