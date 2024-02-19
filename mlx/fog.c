@@ -18,9 +18,8 @@ void	set_fog(t_game *g)
 	if (!g->sprite.fog)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
 	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
-	mlx_image_to_window(g->mlx, g->sprite.fo, (g->data.p_x * WIDTH / \
-		(g->data.width - 1)) - (2000 - g->p_size_x / 2), \
-		(g->data.p_y * HEIGHT / g->data.height) - (1000 - g->p_size_y / 2));
+	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
+	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
 }
 
 void	first_fog(t_game *g)
@@ -78,15 +77,22 @@ void	fog(t_game *g)
 {
 	g->c = count_c(&g->data, 'Q') + count_c(&g->data, 'R') + \
 		count_c(&g->data, 'S');
-	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'Q'
-		|| g->data.map[g->p_coord_y][g->p_coord_x] == 'R'
-		|| g->data.map[g->p_coord_y][g->p_coord_x] == 'S')
-	{
-		if (g->c == g->c_tot)
-			first_fog(g);
-		else if (g->c == g->c_tot - 1)
-			second_fog(g);
-		else if (g->c == g->c_tot - 2)
-			third_fog(g);
-	}
+	printf("x: %d | y: %d\n", g->p_coord_x, g->p_coord_y);
+	// if (g->data.map[g->p_coord_y][g->p_coord_x] == 'Q'
+	// 	|| g->data.map[g->p_coord_y][g->p_coord_x] == 'R'
+	// 	|| g->data.map[g->p_coord_y][g->p_coord_x] == 'S')
+	// {
+	// 	if (g->c == g->c_tot)
+	// 		first_fog(g);
+	// 	else if (g->c == g->c_tot - 1)
+	// 		second_fog(g);
+	// 	else if (g->c == g->c_tot - 2)
+	// 		third_fog(g);
+	// }
+	if (g->c == g->c_tot)
+		first_fog(g);
+	else if (g->c == g->c_tot - 1)
+		second_fog(g);
+	else if (g->c == g->c_tot - 2)
+		third_fog(g);
 }

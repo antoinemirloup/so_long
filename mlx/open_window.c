@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 10:49:01 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:36:37 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_hook(void *param)
 
 	g = param;
 	g->time += g->mlx->delta_time;
+
 	mlx_key_hook(g->mlx, move, (void *)g);
 	if (g->time > 0.03)
 	{
@@ -64,13 +65,17 @@ void	open_window(t_game *g, t_solong *s)
 		exit((ft_printf("Error\nInitializing MLX!\n"), EXIT_FAILURE));
 	background(g);
 	walls(g, s);
+	player(g, s);
+	g->p_pos_x = g->sprite.player->instances[0].x;
+	g->p_pos_y = g->sprite.player->instances[0].y;
+	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
+	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	load_collectibles(g);
 	set_fog(g);
 	set_exit(g);
-	player(g, s);
 	set_numbers(g);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);
-	// destroy_all(g);
+	destroy_all(g);
 	mlx_terminate(g->mlx);
 }
