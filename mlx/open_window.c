@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 15:46:17 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:49:01 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,15 @@ void	ft_hook(void *param)
 
 	g = param;
 	g->time += g->mlx->delta_time;
+	mlx_key_hook(g->mlx, move, (void *)g);
 	if (g->time > 0.03)
 	{
+		g->frame++;
 		refresh(g);
 		g->time = 0;
 	}
 	if (mlx_is_key_down(g->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(g->mlx);
-	mlx_key_hook(g->mlx, move, (void *)g);
 }
 
 void	open_window(t_game *g, t_solong *s)

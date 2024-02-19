@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 15:39:44 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:45:53 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ typedef struct s_sprite
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
 	mlx_image_t		*exit_nest;
+	mlx_image_t		*battq;
+	mlx_image_t		*battr;
+	mlx_image_t		*batts;
 	mlx_image_t		*batt1q;
 	mlx_image_t		*batt1r;
 	mlx_image_t		*batt1s;
@@ -144,6 +147,12 @@ typedef struct s_game
 	int			success;
 	double		time;
 	int			frame;
+	int			q;
+	int			r;
+	int			s;
+	int			b_q;
+	int			b_r;
+	int			b_s;
 	t_sprite	sprite;
 	t_solong	data;
 	t_counter	co;
@@ -174,5 +183,6 @@ void	move_up(t_game *g);
 void	move_down(t_game *g);
 void	move_left(t_game *g);
 void	move_rigth(t_game *g);
+void	refresh(t_game *g);
 
 #endif
