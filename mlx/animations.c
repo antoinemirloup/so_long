@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:10:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 10:47:41 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:58:17 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	batts(t_game *g)
 void	refresh(t_game *g)
 {
 	set_collectibles(g);
+	fog(g);
 	if (g->frame % 10 == 0 && g->b_q == 1)
 	{
 		battq(g);
