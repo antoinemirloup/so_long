@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 10:48:54 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:33:33 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ void	collectibles(t_game *g)
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'Q')
 	{
 		g->b_q = 0;
+		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
 		mlx_delete_image(g->mlx, g->sprite.battq);
 	}
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'R')
 	{
 		g->b_r = 0;
+		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
 		mlx_delete_image(g->mlx, g->sprite.battr);
 	}
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'S')
 	{
 		g->b_s = 0;
+		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
 		mlx_delete_image(g->mlx, g->sprite.batts);
 	}
 }

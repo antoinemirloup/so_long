@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:08:11 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 13:37:36 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:07:14 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ void	exit_game(t_game *g)
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'F')
 	{
 		g->success = 1;
-		mlx_image_to_window(g->mlx, g->sprite.succes, WIDTH / 2 - 375, HEIGHT \
-			/ 2 - 200);
+		mlx_image_to_window(g->mlx, g->sprite.succes, WIDTH / 2 - 300, HEIGHT \
+			/ 2 - 100);
 		mlx_delete_image(g->mlx, g->sprite.fo);
 		g->co.result[0] = mlx_texture_to_image(g->mlx, result_unit(g));
 		g->co.result[1] = mlx_texture_to_image(g->mlx, result_ten(g));
@@ -121,5 +121,5 @@ void	set_exit(t_game *g)
 	if (!g->sprite.success)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
 	g->sprite.succes = mlx_texture_to_image(g->mlx, g->sprite.success);
-	mlx_resize_image(g->sprite.succes, 750, 170);
+	mlx_resize_image(g->sprite.succes, 600, 600);
 }

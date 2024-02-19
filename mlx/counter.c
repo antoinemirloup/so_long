@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:22:12 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 13:18:16 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:48:15 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,15 @@ void	set_numbers(t_game *g)
 void	numbers(t_game *g)
 {
 	resize_numbers(g);
-	g->co.frame = mlx_load_png("assets/frame.png");
-	if (!g->co.frame)
-		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
-	g->co.fram = mlx_texture_to_image(g->mlx, g->co.frame);
-	mlx_resize_image(g->co.fram, WIDTH / 10, HEIGHT / 10);
-	mlx_image_to_window(g->mlx, g->co.fram, (WIDTH - (WIDTH / 10)), 5);
+	if (g->count == 0)
+	{
+		g->co.frame = mlx_load_png("assets/frame.png");
+		if (!g->co.frame)
+			exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
+		g->co.fram = mlx_texture_to_image(g->mlx, g->co.frame);
+		mlx_resize_image(g->co.fram, WIDTH / 10, HEIGHT / 10);
+		mlx_image_to_window(g->mlx, g->co.fram, (WIDTH - (WIDTH / 10)), 5);
+	}
 	mlx_delete_image(g->mlx, g->co.tab[0]);
 	mlx_delete_image(g->mlx, g->co.tab[1]);
 	mlx_delete_image(g->mlx, g->co.tab[2]);
