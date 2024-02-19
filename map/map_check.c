@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 14:32:58 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:52:35 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void	check_map(t_solong *data)
 				&& data->map[data->y][data->x] != 'P'
 				&& data->map[data->y][data->x] != 'C'
 				&& data->map[data->y][data->x] != 'E'
+				&& data->map[data->y][data->x] != 'N'
 				&& data->map[data->y][data->x] != '\n')
 				exit((ft_printf("Error\nWrong input!\n"), \
 				free_tab(data->map), EXIT_FAILURE));
