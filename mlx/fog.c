@@ -14,47 +14,58 @@
 
 void	set_fog(t_game *g)
 {
-	g->sprite.fog = mlx_load_png("assets/fog.png");
-	if (!g->sprite.fog)
+	g->sprite.fog1 = mlx_load_png("assets/fog1.png");
+	if (!g->sprite.fog1)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
-	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
-	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
+	g->sprite.fog2 = mlx_load_png("assets/fog2.png");
+	if (!g->sprite.fog2)
+		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
+	g->sprite.fog3 = mlx_load_png("assets/fog3.png");
+	if (!g->sprite.fog3)
+		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
+	g->sprite.fog4 = mlx_load_png("assets/fog4.png");
+	if (!g->sprite.fog4)
+		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
+	g->sprite.fogg1 = mlx_texture_to_image(g->mlx, g->sprite.fog1);
+	mlx_image_to_window(g->mlx, g->sprite.fogg1, (g->p_pos_x - \
 	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
 }
 
 void	first_fog(t_game *g)
 {
-	mlx_delete_image(g->mlx, g->sprite.fo);
-	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
-	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
+	mlx_delete_image(g->mlx, g->sprite.fogg);
+	mlx_delete_image(g->mlx, g->sprite.fogg1);
+	g->sprite.fogg1 = mlx_texture_to_image(g->mlx, g->sprite.fog1);
+	g->sprite.fogg = g->sprite.fogg1;
+	mlx_image_to_window(g->mlx, g->sprite.fogg, (g->p_pos_x - \
 	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
 }
 
 void	second_fog(t_game *g)
 {
-	mlx_delete_image(g->mlx, g->sprite.fo);
-	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
-	mlx_resize_image(g->sprite.fo, 6000, 3000);
-	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
-	(3000 - g->p_size_x / 2)), (g->p_pos_y - (1500 - g->p_size_y / 2)));
+	mlx_delete_image(g->mlx, g->sprite.fogg);
+	g->sprite.fogg2 = mlx_texture_to_image(g->mlx, g->sprite.fog2);
+	g->sprite.fogg = g->sprite.fogg2;
+	mlx_image_to_window(g->mlx, g->sprite.fogg, (g->p_pos_x - \
+	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
 }
 
 void	third_fog(t_game *g)
 {
-	mlx_delete_image(g->mlx, g->sprite.fo);
-	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
-	mlx_resize_image(g->sprite.fo, 8000, 4000);
-	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
-	(4000 - g->p_size_x / 2)), (g->p_pos_y - (2000 - g->p_size_y / 2)));
+	mlx_delete_image(g->mlx, g->sprite.fogg);
+	g->sprite.fogg3 = mlx_texture_to_image(g->mlx, g->sprite.fog3);
+	g->sprite.fogg = g->sprite.fogg3;
+	mlx_image_to_window(g->mlx, g->sprite.fogg, (g->p_pos_x - \
+	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
 }
 
 void	fourth_fog(t_game *g)
 {
-	mlx_delete_image(g->mlx, g->sprite.fo);
-	g->sprite.fo = mlx_texture_to_image(g->mlx, g->sprite.fog);
-	mlx_resize_image(g->sprite.fo, 10000, 5000);
-	mlx_image_to_window(g->mlx, g->sprite.fo, (g->p_pos_x - \
-	(5000 - g->p_size_x / 2)), (g->p_pos_y - (2500 - g->p_size_y / 2)));
+	mlx_delete_image(g->mlx, g->sprite.fogg);
+	g->sprite.fogg4 = mlx_texture_to_image(g->mlx, g->sprite.fog4);
+	g->sprite.fogg = g->sprite.fogg4;
+	mlx_image_to_window(g->mlx, g->sprite.fogg, (g->p_pos_x - \
+	(2000 - g->p_size_x / 2)), (g->p_pos_y - (1000 - g->p_size_y / 2)));
 }
 
 void	fog(t_game *g)

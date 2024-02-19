@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 10:45:53 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:23:14 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ typedef struct s_sprite
 	mlx_texture_t	*bat1;
 	mlx_texture_t	*bat2;
 	mlx_texture_t	*bat3;
-	mlx_texture_t	*fog;
+	mlx_texture_t	*fog1;
+	mlx_texture_t	*fog2;
+	mlx_texture_t	*fog3;
+	mlx_texture_t	*fog4;
 	mlx_texture_t	*success;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
@@ -83,7 +86,11 @@ typedef struct s_sprite
 	mlx_image_t		*batt3q;
 	mlx_image_t		*batt3r;
 	mlx_image_t		*batt3s;
-	mlx_image_t		*fo;
+	mlx_image_t		*fogg1;
+	mlx_image_t		*fogg2;
+	mlx_image_t		*fogg3;
+	mlx_image_t		*fogg4;
+	mlx_image_t		*fogg;
 	mlx_image_t		*succes;
 	mlx_image_t		*counter;
 }	t_sprite;

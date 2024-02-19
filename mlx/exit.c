@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:08:11 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 15:06:43 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:21:28 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,10 @@ void	exit_game(t_game *g)
 		g->success = 1;
 		mlx_image_to_window(g->mlx, g->sprite.succes, WIDTH / 2 - 300, HEIGHT \
 			/ 2 - 500);
-		mlx_delete_image(g->mlx, g->sprite.fo);
+		mlx_delete_image(g->mlx, g->sprite.fogg1);
+		mlx_delete_image(g->mlx, g->sprite.fogg2);
+		mlx_delete_image(g->mlx, g->sprite.fogg3);
+		mlx_delete_image(g->mlx, g->sprite.fogg4);
 		g->co.result[0] = mlx_texture_to_image(g->mlx, result_unit(g));
 		g->co.result[1] = mlx_texture_to_image(g->mlx, result_ten(g));
 		g->co.result[2] = mlx_texture_to_image(g->mlx, result_hundred(g));
