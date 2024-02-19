@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 15:44:32 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:46:07 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	move(mlx_key_data_t key, void *param)
 		&& g->success == 0)
 		move_rigth(g);
 	collectibles(g);
-	numbers(g);
 	exit_game(g);
 }
 
@@ -55,6 +54,8 @@ void	ft_hook(void *param)
 		refresh(g);
 		g->time = 0;
 	}
+	numbers(g);
+
 	if (mlx_is_key_down(g->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(g->mlx);
 }
