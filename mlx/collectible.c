@@ -6,30 +6,46 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 14:33:33 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:12:48 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	place_exit(t_game *g)
+{
+	if (g->c == 0)
+	{
+		mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * \
+		WIDTH / g->data.width), (g->data.e_y * HEIGHT / g->data.height));
+		g->data.map[g->data.e_y][g->data.e_x] = 'F';
+	}
+}
 
 void	collectibles(t_game *g)
 {
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'Q')
 	{
 		g->b_q = 0;
+		g->c--;
 		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
+		place_exit(g);
 		mlx_delete_image(g->mlx, g->sprite.battq);
 	}
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'R')
 	{
 		g->b_r = 0;
+		g->c--;
 		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
+		place_exit(g);
 		mlx_delete_image(g->mlx, g->sprite.battr);
 	}
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'S')
 	{
 		g->b_s = 0;
+		g->c--;
 		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
+		place_exit(g);
 		mlx_delete_image(g->mlx, g->sprite.batts);
 	}
 }

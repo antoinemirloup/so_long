@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 14:56:06 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:13:07 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	move(mlx_key_data_t key, void *param)
 		move_rigth(g);
 	collectibles(g);
 	numbers(g);
-	fog(g);
+	// fog(g);
 	exit_game(g);
 }
 
@@ -45,6 +45,8 @@ void	ft_hook(void *param)
 
 	g = param;
 	g->time += g->mlx->delta_time;
+	g->c = count_c(&g->data, 'Q') + count_c(&g->data, 'R') + \
+		count_c(&g->data, 'S');
 	mlx_key_hook(g->mlx, move, (void *)g);
 	if (g->time > 0.03)
 	{
