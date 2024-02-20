@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 13:52:27 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:54:48 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,22 @@ typedef struct s_counter
 	mlx_image_t		*tab[3];
 }	t_counter;
 
+typedef struct death
+{
+	mlx_texture_t	*black_screen;
+	mlx_texture_t	*death1;
+	mlx_texture_t	*death2;
+	mlx_texture_t	*death3;
+	mlx_texture_t	*death4;
+	mlx_texture_t	*death5;
+	mlx_texture_t	*death6;
+	mlx_texture_t	*death7;
+	mlx_texture_t	*death8;
+	mlx_image_t		*black;
+	mlx_image_t		*d[8];
+	int				i;
+}	t_death;
+
 typedef struct s_game
 {
 	mlx_t		*mlx;
@@ -179,9 +195,11 @@ typedef struct s_game
 	int			b_s;
 	int			dir_1;
 	int			dir_2;
+	int			alive;
 	t_sprite	sprite;
 	t_solong	data;
 	t_counter	co;
+	t_death		d;
 }	t_game;
 
 void	open_window(t_game *g, t_solong *s);
@@ -212,5 +230,8 @@ void	move_rigth(t_game *g);
 void	refresh(t_game *g);
 void	set_enemies(t_game *g);
 void	move_enemies(t_game *g);
+void	set_death(t_game *g);
+void	death(t_game *g);
+void	animate_death(t_game *g);
 
 #endif

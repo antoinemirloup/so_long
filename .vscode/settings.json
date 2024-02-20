@@ -12,7 +12,8 @@
         "algorithm": "c",
         "limits": "c",
         "streambuf": "c",
-        "unordered_map": "c"
+        "unordered_map": "c",
+        "so_long.h": "c"
     },
     "makefile.launchConfigurations": [
         {

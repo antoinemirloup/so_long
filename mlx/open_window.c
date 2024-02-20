@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 13:55:51 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:01:31 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_hook(void *param)
 	t_game	*g;
 
 	g = param;
-	if (g->success == 0)
+	if (g->success == 0 && g->alive == 1)
 		fog(g);
 	g->time += g->mlx->delta_time;
 	g->c = count_c(&g->data, 'Q') + count_c(&g->data, 'R') + \
@@ -55,6 +55,7 @@ void	ft_hook(void *param)
 		refresh(g);
 		g->time = 0;
 	}
+	death(g);
 	if (mlx_is_key_down(g->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(g->mlx);
 }
@@ -77,6 +78,7 @@ void	open_window(t_game *g, t_solong *s)
 	set_fog(g);
 	set_exit(g);
 	set_numbers(g);
+	set_death(g);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);
 	destroy_all(g);
