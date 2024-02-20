@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:10:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 16:35:26 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 10:56:41 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,6 @@ void	refresh(t_game *g)
 		battr(g);
 	if (g->frame % 10 == 0 && g->b_s == 1)
 		batts(g);
+	if (g->frame % 8 == 0)
+		move_enemies(g);
 }

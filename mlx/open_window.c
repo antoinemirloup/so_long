@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 16:27:12 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:55:51 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	open_window(t_game *g, t_solong *s)
 	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
 	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	load_collectibles(g);
+	set_enemies(g);
 	set_fog(g);
 	set_exit(g);
 	set_numbers(g);

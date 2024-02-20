@@ -6,7 +6,13 @@
         "string_view": "c",
         "ranges": "c",
         "span": "c",
-        "random": "c"
+        "random": "c",
+        "*.tcc": "c",
+        "bit": "c",
+        "algorithm": "c",
+        "limits": "c",
+        "streambuf": "c",
+        "unordered_map": "c"
     },
     "makefile.launchConfigurations": [
         {

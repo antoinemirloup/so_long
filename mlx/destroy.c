@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 16:20:54 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:07:08 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	destroy_all(t_game *g)
 	mlx_delete_texture(g->co.eigth);
 	mlx_delete_texture(g->co.nine);
 	mlx_delete_texture(g->sprite.success);
+	mlx_delete_texture(g->sprite.enemya);
+	mlx_delete_texture(g->sprite.enemyb);
 	mlx_delete_image(g->mlx, g->sprite.player);
 	mlx_delete_image(g->mlx, g->sprite.background);
 	mlx_delete_image(g->mlx, g->sprite.wall);
@@ -71,4 +73,10 @@ void	destroy_all(t_game *g)
 	mlx_delete_image(g->mlx, g->sprite.battq);
 	mlx_delete_image(g->mlx, g->sprite.battr);
 	mlx_delete_image(g->mlx, g->sprite.batts);
+	mlx_delete_image(g->mlx, g->sprite.enemy1a);
+	mlx_delete_image(g->mlx, g->sprite.enemy1b);
+	mlx_delete_image(g->mlx, g->sprite.enemy2a);
+	mlx_delete_image(g->mlx, g->sprite.enemy2b);
+	mlx_delete_image(g->mlx, g->sprite.enemy1);
+	mlx_delete_image(g->mlx, g->sprite.enemy2);
 }

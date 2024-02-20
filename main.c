@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 13:35:58 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:52:34 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	main(void)
 	g.b_s = 1;
 	g.time = 0;
 	g.frame = 0;
+	g.dir_1 = 1;
+	g.dir_2 = 1;
+	g.e = 0;
+	g.a = 0;
+	g.b = 0;
 	open_window(&g, &g.data);
 	free_tab(g.data.map);
 }

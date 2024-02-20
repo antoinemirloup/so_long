@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 16:23:14 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:52:27 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct s_sprite
 	mlx_texture_t	*fog3;
 	mlx_texture_t	*fog4;
 	mlx_texture_t	*success;
+	mlx_texture_t	*enemya;
+	mlx_texture_t	*enemyb;
 	mlx_image_t		*player;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
@@ -93,6 +95,12 @@ typedef struct s_sprite
 	mlx_image_t		*fogg;
 	mlx_image_t		*succes;
 	mlx_image_t		*counter;
+	mlx_image_t		*enemy1a;
+	mlx_image_t		*enemy1b;
+	mlx_image_t		*enemy2a;
+	mlx_image_t		*enemy2b;
+	mlx_image_t		*enemy1;
+	mlx_image_t		*enemy2;
 }	t_sprite;
 
 typedef struct s_counter
@@ -133,6 +141,8 @@ typedef struct s_game
 	int			p_size_y;
 	int			w_pos_x;
 	int			w_pos_y;
+	int			n_pos_x;
+	int			n_pos_y;
 	int			w_size_x;
 	int			w_size_y;
 	int			c_pos_x;
@@ -143,6 +153,10 @@ typedef struct s_game
 	int			r_pos_y;
 	int			s_pos_x;
 	int			s_pos_y;
+	int			z_pos_x;
+	int			z_pos_y;
+	int			y_pos_x;
+	int			y_pos_y;
 	int			c_size_x;
 	int			c_size_y;
 	int			p_coord_x;
@@ -150,6 +164,9 @@ typedef struct s_game
 	size_t		c_tot;
 	size_t		c;
 	int			i;
+	int			e;
+	int			a;
+	int			b;
 	int			count;
 	int			success;
 	double		time;
@@ -160,6 +177,8 @@ typedef struct s_game
 	int			b_q;
 	int			b_r;
 	int			b_s;
+	int			dir_1;
+	int			dir_2;
 	t_sprite	sprite;
 	t_solong	data;
 	t_counter	co;
@@ -191,5 +210,7 @@ void	move_down(t_game *g);
 void	move_left(t_game *g);
 void	move_rigth(t_game *g);
 void	refresh(t_game *g);
+void	set_enemies(t_game *g);
+void	move_enemies(t_game *g);
 
 #endif
