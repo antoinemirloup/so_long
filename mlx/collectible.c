@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 15:12:48 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:00:37 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	collectibles(t_game *g)
 		g->c--;
 		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
 		place_exit(g);
-		mlx_delete_image(g->mlx, g->sprite.battq);
+		mlx_delete_image(g->mlx, g->sprite.batt1q);
+		mlx_delete_image(g->mlx, g->sprite.batt2q);
+		mlx_delete_image(g->mlx, g->sprite.batt3q);
 	}
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'R')
 	{
@@ -38,7 +40,9 @@ void	collectibles(t_game *g)
 		g->c--;
 		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
 		place_exit(g);
-		mlx_delete_image(g->mlx, g->sprite.battr);
+		mlx_delete_image(g->mlx, g->sprite.batt1r);
+		mlx_delete_image(g->mlx, g->sprite.batt2r);
+		mlx_delete_image(g->mlx, g->sprite.batt3r);
 	}
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'S')
 	{
@@ -46,7 +50,9 @@ void	collectibles(t_game *g)
 		g->c--;
 		g->data.map[g->p_coord_y][g->p_coord_x] = '0';
 		place_exit(g);
-		mlx_delete_image(g->mlx, g->sprite.batts);
+		mlx_delete_image(g->mlx, g->sprite.batt1s);
+		mlx_delete_image(g->mlx, g->sprite.batt2s);
+		mlx_delete_image(g->mlx, g->sprite.batt3s);
 	}
 }
 
@@ -85,8 +91,9 @@ void	place_collectibles(t_game *g)
 	}
 }
 
-void	load_collectibles(t_game *g)
+void	set_collectibles(t_game *g)
 {
+	place_collectibles(g);
 	g->c_size_y = (HEIGHT / g->data.height) / 1.2;
 	g->c_size_x = g->w_size_y / 1.98;
 	g->sprite.bat1 = mlx_load_png("assets/battery1.png");
@@ -94,10 +101,6 @@ void	load_collectibles(t_game *g)
 	g->sprite.bat3 = mlx_load_png("assets/battery3.png");
 	if (!g->sprite.bat1 || !g->sprite.bat2 || !g->sprite.bat3)
 		exit((ft_printf("Error\nLoading image!\n"), EXIT_FAILURE));
-}
-
-void	set_collectibles(t_game *g)
-{
 	g->sprite.batt1q = mlx_texture_to_image(g->mlx, g->sprite.bat1);
 	g->sprite.batt1r = mlx_texture_to_image(g->mlx, g->sprite.bat1);
 	g->sprite.batt1s = mlx_texture_to_image(g->mlx, g->sprite.bat1);
@@ -116,5 +119,22 @@ void	set_collectibles(t_game *g)
 	mlx_resize_image(g->sprite.batt3q, g->c_size_x, g->c_size_y);
 	mlx_resize_image(g->sprite.batt3r, g->c_size_x, g->c_size_y);
 	mlx_resize_image(g->sprite.batt3s, g->c_size_x, g->c_size_y);
-	place_collectibles(g);
+	mlx_image_to_window(g->mlx, g->sprite.batt1q, g->q_pos_x, g->q_pos_y);
+	g->sprite.batt1q->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt2q, g->q_pos_x, g->q_pos_y);
+	g->sprite.batt2q->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt3q, g->q_pos_x, g->q_pos_y);
+	g->sprite.batt3q->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt1r, g->r_pos_x, g->r_pos_y);
+	g->sprite.batt1r->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt2r, g->r_pos_x, g->r_pos_y);
+	g->sprite.batt2r->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt3r, g->r_pos_x, g->r_pos_y);
+	g->sprite.batt2r->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt1s, g->s_pos_x, g->s_pos_y);
+	g->sprite.batt1s->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt2s, g->s_pos_x, g->s_pos_y);
+	g->sprite.batt2s->instances->enabled = false;
+	mlx_image_to_window(g->mlx, g->sprite.batt3s, g->s_pos_x, g->s_pos_y);
+	g->sprite.batt3s->instances->enabled = false;
 }

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 14:07:08 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:54:29 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,6 @@ void	destroy_all(t_game *g)
 	mlx_delete_image(g->mlx, g->co.tab[0]);
 	mlx_delete_image(g->mlx, g->co.tab[1]);
 	mlx_delete_image(g->mlx, g->co.tab[2]);
-	mlx_delete_image(g->mlx, g->sprite.battq);
-	mlx_delete_image(g->mlx, g->sprite.battr);
-	mlx_delete_image(g->mlx, g->sprite.batts);
 	mlx_delete_image(g->mlx, g->sprite.enemy1a);
 	mlx_delete_image(g->mlx, g->sprite.enemy1b);
 	mlx_delete_image(g->mlx, g->sprite.enemy2a);

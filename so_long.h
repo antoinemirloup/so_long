@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 15:54:48 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:51:03 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,6 @@ typedef struct s_sprite
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
 	mlx_image_t		*exit_nest;
-	mlx_image_t		*battq;
-	mlx_image_t		*battr;
-	mlx_image_t		*batts;
 	mlx_image_t		*batt1q;
 	mlx_image_t		*batt1r;
 	mlx_image_t		*batt1s;
@@ -208,7 +205,7 @@ void	player(t_game *g, t_solong *s);
 void	background(t_game *g);
 void	walls(t_game *g, t_solong *s);
 void	set_collectibles(t_game *g);
-void	load_collectibles(t_game *g);
+void	place_collectibles(t_game *g);
 void	collectibles(t_game *g);
 void	fog(t_game *g);
 void	exit_game(t_game *g);
