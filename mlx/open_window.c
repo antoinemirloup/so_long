@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/21 14:34:42 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:55:37 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_hook(void *param)
 	if (g->time > 0.03)
 	{
 		g->frame++;
-		refresh(g);
+		refresh(g, 0);
 		g->time = 0;
 	}
 	death(g);
@@ -68,6 +68,7 @@ void	open_window(t_game *g, t_solong *s)
 		exit((ft_printf("Error\nInitializing MLX!\n"), EXIT_FAILURE));
 	background(g);
 	walls(g, s);
+	set_exit(g);
 	player(g, s);
 	g->p_pos_x = g->sprite.player->instances[0].x;
 	g->p_pos_y = g->sprite.player->instances[0].y;
@@ -75,7 +76,6 @@ void	open_window(t_game *g, t_solong *s)
 	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	set_collectibles(g);
 	set_enemies(g);
-	set_exit(g);
 	set_fog(g);
 	set_numbers(g);
 	set_death(g);

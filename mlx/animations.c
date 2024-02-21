@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:10:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 16:54:12 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 17:33:47 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,25 @@ void	batts(t_game *g)
 	}
 }
 
-void	refresh(t_game *g)
+void	refresh(t_game *g, int i)
 {
-	if (g->frame % 10 == 0 && g->b_q == 1)
+	if (g->frame % 10 == 0 && g->b_q == 1 && i == 0)
 		battq(g);
-	if (g->frame % 10 == 0 && g->b_r == 1)
+	if (g->frame % 10 == 0 && g->b_r == 1 && i == 0)
 		battr(g);
-	if (g->frame % 10 == 0 && g->b_s == 1)
+	if (g->frame % 10 == 0 && g->b_s == 1 && i == 0)
 		batts(g);
-	if (g->frame % 8 == 0)
+	if (g->frame % 8 == 0 && i == 0)
 		move_enemies(g);
-	if (g->frame % 8 == 0 && g->alive == 0)
+	if (g->frame % 8 == 0 && g->alive == 0 && i == 0)
 		animate_death(g);
+	// if (g-> frame % 8 == 0 && i == 1)
+	// {
+	// 	g->sprite.p_l[g->left]->instances->enabled = true;
+	// 	if (g->left > 0)
+	// 		g->sprite.p_l[g->left - 1]->instances->enabled = false;
+	// 	g->left++;
+	// }
+	// if (i == 2)
+		
 }

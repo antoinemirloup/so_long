@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/21 15:25:13 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 17:22:34 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 typedef struct s_solong
 {
 	char	**map;
-	char	**map_pix;
 	size_t	x;
 	size_t	y;
 	size_t	height;
@@ -79,12 +78,8 @@ typedef struct s_sprite
 	mlx_texture_t	*enemya;
 	mlx_texture_t	*enemyb;
 	mlx_image_t		*player;
-	mlx_image_t		*p_l_1;
-	mlx_image_t		*p_l_2;
-	mlx_image_t		*p_l_3;
-	mlx_image_t		*p_r_1;
-	mlx_image_t		*p_r_2;
-	mlx_image_t		*p_r_3;
+	mlx_image_t		*p_l[4];
+	mlx_image_t		*p_r[4];
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
 	mlx_image_t		*exit_nest;
@@ -123,7 +118,6 @@ typedef struct s_counter
 	mlx_texture_t	*seven;
 	mlx_texture_t	*eigth;
 	mlx_texture_t	*nine;
-	mlx_texture_t	*frame;
 	mlx_image_t		*c0;
 	mlx_image_t		*c1;
 	mlx_image_t		*c2;
@@ -134,7 +128,6 @@ typedef struct s_counter
 	mlx_image_t		*c7;
 	mlx_image_t		*c8;
 	mlx_image_t		*c9;
-	mlx_image_t		*fram;
 	mlx_texture_t	*r[3];
 	mlx_image_t		*result[3];
 	mlx_image_t		*tab[3];
@@ -186,18 +179,20 @@ typedef struct s_game
 	int			p_coord_x;
 	int			p_coord_y;
 	size_t		c_tot;
-	size_t		c;
-	int			i;
-	int			e;
 	int			a;
 	int			b;
+	size_t		c;
+	int			e;
+	int			i;
+	int			q;
+	int			r;
+	int			s;
+	int			left;
+	int			rigth;
 	int			count;
 	int			success;
 	double		time;
 	int			frame;
-	int			q;
-	int			r;
-	int			s;
 	int			b_q;
 	int			b_r;
 	int			b_s;
@@ -235,7 +230,7 @@ void	move_up(t_game *g);
 void	move_down(t_game *g);
 void	move_left(t_game *g);
 void	move_rigth(t_game *g);
-void	refresh(t_game *g);
+void	refresh(t_game *g, int i);
 void	set_enemies(t_game *g);
 void	move_enemies(t_game *g);
 void	set_death(t_game *g);

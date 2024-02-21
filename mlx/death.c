@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:15:45 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/21 14:12:56 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 17:04:28 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,5 @@ void	death(t_game *g)
 {
 	if (g->data.map[g->p_coord_y][g->p_coord_x] == 'Z'
 		|| g->data.map[g->p_coord_y][g->p_coord_x] == 'Y')
-	{
 		g->alive = 0;
-	}
 }
