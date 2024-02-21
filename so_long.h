@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 16:51:03 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:08:39 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ typedef struct s_sprite
 	mlx_image_t		*fogg2;
 	mlx_image_t		*fogg3;
 	mlx_image_t		*fogg4;
-	mlx_image_t		*fogg;
 	mlx_image_t		*succes;
 	mlx_image_t		*counter;
 	mlx_image_t		*enemy1a;

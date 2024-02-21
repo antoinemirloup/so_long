@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 17:00:37 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:35:29 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,15 @@ void	place_exit(t_game *g)
 {
 	if (g->c == 0)
 	{
-		mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * \
-		WIDTH / g->data.width), (g->data.e_y * HEIGHT / g->data.height));
+		g->sprite.exit_nest->instances->enabled = true;
+		if (g->c_tot == 3)
+			g->sprite.fogg4->instances->enabled = true;
+		else if (g->c_tot == 2)
+			g->sprite.fogg3->instances->enabled = true;
+		else if (g->c_tot == 1)
+			g->sprite.fogg2->instances->enabled = true;
+		if (g->c_tot == 0)
+			g->sprite.fogg1->instances->enabled = true;
 		g->data.map[g->data.e_y][g->data.e_x] = 'F';
 	}
 }

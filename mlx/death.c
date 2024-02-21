@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:15:45 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 17:02:50 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:12:56 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	animate_death(t_game *g)
 	mlx_delete_image(g->mlx, g->sprite.fogg2);
 	mlx_delete_image(g->mlx, g->sprite.fogg3);
 	mlx_delete_image(g->mlx, g->sprite.fogg4);
-	mlx_delete_image(g->mlx, g->sprite.fogg);
 	g->d.black->instances->enabled = true;
 	g->d.d[g->d.i]->instances->enabled = true;
 	if (g->d.i > 0)
