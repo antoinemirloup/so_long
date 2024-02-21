@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/21 14:08:39 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:25:13 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ void	spread_y(t_solong *g);
 typedef struct s_sprite
 {
 	mlx_texture_t	*dino;
+	mlx_texture_t	*dino_left_1;
+	mlx_texture_t	*dino_left_2;
+	mlx_texture_t	*dino_left_3;
+	mlx_texture_t	*dino_rigth_1;
+	mlx_texture_t	*dino_rigth_2;
+	mlx_texture_t	*dino_rigth_3;
 	mlx_texture_t	*back;
 	mlx_texture_t	*bush;
 	mlx_texture_t	*nest;
@@ -73,6 +79,12 @@ typedef struct s_sprite
 	mlx_texture_t	*enemya;
 	mlx_texture_t	*enemyb;
 	mlx_image_t		*player;
+	mlx_image_t		*p_l_1;
+	mlx_image_t		*p_l_2;
+	mlx_image_t		*p_l_3;
+	mlx_image_t		*p_r_1;
+	mlx_image_t		*p_r_2;
+	mlx_image_t		*p_r_3;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
 	mlx_image_t		*exit_nest;
