@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:15:45 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/21 17:04:28 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:52:10 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,7 @@
 
 void	set_death(t_game *g)
 {
-	g->d.black_screen = mlx_load_png("assets/black_screen.png");
-	g->d.death1 = mlx_load_png("assets/death1.png");
-	g->d.death2 = mlx_load_png("assets/death2.png");
-	g->d.death3 = mlx_load_png("assets/death3.png");
-	g->d.death4 = mlx_load_png("assets/death4.png");
-	g->d.death5 = mlx_load_png("assets/death5.png");
-	g->d.death6 = mlx_load_png("assets/death6.png");
-	g->d.death7 = mlx_load_png("assets/death7.png");
-	g->d.death8 = mlx_load_png("assets/death8.png");
+	load_death(g);
 	g->d.black = mlx_texture_to_image(g->mlx, g->d.black_screen);
 	g->d.d[0] = mlx_texture_to_image(g->mlx, g->d.death1);
 	g->d.d[1] = mlx_texture_to_image(g->mlx, g->d.death2);

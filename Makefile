@@ -6,18 +6,19 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/21 14:11:48 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/22 15:50:51 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = @cc
-CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g3 -fsanitize=address
 
 SRCS = main.c map/map_check.c map/path_check1.c map/path_check2.c map/utils1.c \
-	mlx/open_window.c mlx/destroy.c mlx/player.c mlx/background.c mlx/walls.c mlx/exit.c \
-	mlx/check_collision.c mlx/collectible.c mlx/fog.c mlx/counter.c mlx/counter_utils.c \
-	mlx/moves.c mlx/animations.c mlx/enemies.c mlx/death.c
+	game/open_window.c game/destroy.c game/player.c game/background.c game/walls.c game/exit.c \
+	game/check_collision.c game/collectible.c game/fog.c game/counter.c game/counter_utils.c \
+	game/moves.c game/animations.c game/enemies.c game/death.c game/load_collectibles.c \
+	game/result.c game/delete_collectibles.c game/load_death.c
 
 LIBS	= MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm
 OBJS =	$(SRCS:.c=.o)

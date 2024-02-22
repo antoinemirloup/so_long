@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/21 17:22:34 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:16:56 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ typedef struct s_solong
 	size_t	j;
 }	t_solong;
 
-void	get_map(t_solong *g);
-void	check_map(t_solong *g);
-void	free_tab(char **tab);
-size_t	count_c(t_solong *g, char c);
-void	map_doable(t_solong *g);
-void	init_x(t_solong *g);
-void	init_y(t_solong *g);
-void	spread_x(t_solong *g);
-void	spread_y(t_solong *g);
+void			get_map(t_solong *g);
+void			check_map(t_solong *g);
+void			free_tab(char **tab);
+size_t			count_c(t_solong *g, char c);
+void			map_doable(t_solong *g);
+void			init_x(t_solong *g);
+void			init_y(t_solong *g);
+void			spread_x(t_solong *g);
+void			spread_y(t_solong *g);
 
 // MLX
 
@@ -205,36 +205,76 @@ typedef struct s_game
 	t_death		d;
 }	t_game;
 
-void	open_window(t_game *g, t_solong *s);
-void	destroy_all(t_game *g);
-void	player(t_game *g, t_solong *s);
-void	background(t_game *g);
-void	walls(t_game *g, t_solong *s);
-void	set_collectibles(t_game *g);
-void	place_collectibles(t_game *g);
-void	collectibles(t_game *g);
-void	fog(t_game *g);
-void	exit_game(t_game *g);
-void	set_exit(t_game *g);
-int		check_up(t_game *g);
-int		check_down(t_game *g);
-int		check_left(t_game *g);
-int		check_rigth(t_game *g);
-void	set_fog(t_game *g);
-void	numbers(t_game *g);
-void	set_numbers(t_game *g);
-void	disp_unit(t_game *g);
-void	disp_ten(t_game *g);
-void	disp_hundred(t_game *g);
-void	move_up(t_game *g);
-void	move_down(t_game *g);
-void	move_left(t_game *g);
-void	move_rigth(t_game *g);
-void	refresh(t_game *g, int i);
-void	set_enemies(t_game *g);
-void	move_enemies(t_game *g);
-void	set_death(t_game *g);
-void	death(t_game *g);
-void	animate_death(t_game *g);
+// MLX param
+
+void			open_window(t_game *g, t_solong *s);
+void			destroy_all(t_game *g);
+void			refresh(t_game *g);
+
+// Collectibles
+
+void			set_collectibles(t_game *g);
+void			place_collectibles(t_game *g);
+void			collectibles(t_game *g);
+void			load_collectibles(t_game *g);
+void			resize_collectibles(t_game *g);
+void			coll1(t_game *g);
+void			coll2(t_game *g);
+void			coll3(t_game *g);
+void			delete_coll1(t_game *g);
+void			delete_coll2(t_game *g);
+void			delete_coll3(t_game *g);
+
+// Player and collisions
+
+void			player(t_game *g, t_solong *s);
+int				check_up(t_game *g);
+int				check_down(t_game *g);
+int				check_left(t_game *g);
+int				check_rigth(t_game *g);
+void			move_up(t_game *g);
+void			move_down(t_game *g);
+void			move_left(t_game *g);
+void			move_rigth(t_game *g);
+void			move(mlx_key_data_t key, void *param);
+
+// Background
+
+void			background(t_game *g);
+
+// Walls
+
+void			walls(t_game *g, t_solong *s);
+
+// Fog
+
+void			fog(t_game *g);
+void			set_fog(t_game *g);
+
+// Counter
+
+void			numbers(t_game *g);
+void			set_numbers(t_game *g);
+void			disp_unit(t_game *g);
+void			disp_ten(t_game *g);
+void			disp_hundred(t_game *g);
+mlx_texture_t	*result_unit(t_game *g);
+mlx_texture_t	*result_ten(t_game *g);
+mlx_texture_t	*result_hundred(t_game *g);
+
+// Ennemies and death
+
+void			set_enemies(t_game *g);
+void			move_enemies(t_game *g);
+void			set_death(t_game *g);
+void			death(t_game *g);
+void			animate_death(t_game *g);
+void			load_death(t_game *g);
+
+// Exit
+
+void			place_exit(t_game *g);
+void			exit_game(t_game *g);
+void			set_exit(t_game *g);
 
 #endif

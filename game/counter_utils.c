@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:56 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/16 12:46:00 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:46:01 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	disp_unit(t_game *g)
 {
-	g->co.tab[1] = g->co.c0;
-	g->co.tab[2] = g->co.c0;
 	if (g->count % 10 == 0)
 		g->co.tab[0] = g->co.c0;
 	if (g->count % 10 == 1)
@@ -40,7 +38,6 @@ void	disp_unit(t_game *g)
 
 void	disp_ten(t_game *g)
 {
-	g->co.tab[2] = g->co.c0;
 	if ((g->count / 10) % 10 == 0)
 		g->co.tab[1] = g->co.c0;
 	if ((g->count / 10) % 10 == 1)
