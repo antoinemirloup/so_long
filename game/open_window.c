@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:27:17 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:52:56 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	move(mlx_key_data_t key, void *param)
 	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
 	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	if (key.key == MLX_KEY_W && (key.action == 1 || key.action == 2) \
-		&& check_up(g) == 1 && g->success == 0)
+		&& check_up(g) == 1 && g->success == 0 && g->alive == 1)
 		move_up(g);
 	if (key.key == MLX_KEY_S && (key.action == 1 || key.action == 2) \
-		&& check_down(g) == 1 && g->success == 0)
+		&& check_down(g) == 1 && g->success == 0 && g->alive == 1)
 		move_down(g);
 	if (key.key == MLX_KEY_A && (key.action == 1 || key.action == 2) \
-		&& check_left(g) == 1 && g->success == 0)
+		&& check_left(g) == 1 && g->success == 0 && g->alive == 1)
 		move_left(g);
 	if (key.key == MLX_KEY_D && (key.action == 1 || key.action == 2) \
-		&& check_rigth(g) == 1 && g->success == 0)
+		&& check_rigth(g) == 1 && g->success == 0 && g->alive == 1)
 		move_rigth(g);
 	numbers(g);
 	collectibles(g);

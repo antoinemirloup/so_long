@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:12:40 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 15:22:05 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:41:29 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	ten_to_window(t_game *g)
 
 void	get_ten(t_game *g)
 {
-	load_numbers(g);
 	g->co.t0 = mlx_texture_to_image(g->mlx, g->co.zero);
 	g->co.t1 = mlx_texture_to_image(g->mlx, g->co.one);
 	g->co.t2 = mlx_texture_to_image(g->mlx, g->co.two);
@@ -98,5 +97,5 @@ void	disable_ten(t_game *g)
 	g->co.t6->instances->enabled = false;
 	g->co.t7->instances->enabled = false;
 	g->co.t8->instances->enabled = false;
-	g->co.t9->instances->enabled = false;	
+	g->co.t9->instances->enabled = false;
 }

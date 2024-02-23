@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:22:12 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 15:23:06 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:40:03 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	load_numbers(t_game *g)
 
 void	set_numbers(t_game *g)
 {
+	load_numbers(g);
 	get_units(g);
 	get_ten(g);
 	get_hundred(g);

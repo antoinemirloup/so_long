@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 15:48:49 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:50:20 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ typedef struct s_counter
 	mlx_image_t		*h9;
 	mlx_texture_t	*r[3];
 	mlx_image_t		*result[3];
-	mlx_image_t		*tab[3];
 }	t_counter;
 
 typedef struct death
@@ -226,6 +225,9 @@ typedef struct s_game
 
 void			open_window(t_game *g, t_solong *s);
 void			d_a(t_game *g);
+void			delete_images_1(t_game *g);
+void			delete_images_2(t_game *g);
+void			delete_images_3(t_game *g);
 void			refresh(t_game *g);
 void			init_textures(t_game *g);
 

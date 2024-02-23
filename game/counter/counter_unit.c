@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 14:37:22 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 15:19:34 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:41:23 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	units_to_window(t_game *g)
 
 void	get_units(t_game *g)
 {
-	load_numbers(g);
 	g->co.u0 = mlx_texture_to_image(g->mlx, g->co.zero);
 	g->co.u1 = mlx_texture_to_image(g->mlx, g->co.one);
 	g->co.u2 = mlx_texture_to_image(g->mlx, g->co.two);
@@ -98,5 +97,5 @@ void	disable_units(t_game *g)
 	g->co.u6->instances->enabled = false;
 	g->co.u7->instances->enabled = false;
 	g->co.u8->instances->enabled = false;
-	g->co.u9->instances->enabled = false;	
+	g->co.u9->instances->enabled = false;
 }

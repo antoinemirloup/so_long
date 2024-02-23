@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:13:40 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 15:21:50 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:41:35 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	hundred_to_window(t_game *g)
 
 void	get_hundred(t_game *g)
 {
-	load_numbers(g);
 	g->co.h0 = mlx_texture_to_image(g->mlx, g->co.zero);
 	g->co.h1 = mlx_texture_to_image(g->mlx, g->co.one);
 	g->co.h2 = mlx_texture_to_image(g->mlx, g->co.two);
@@ -98,5 +97,5 @@ void	disable_hundred(t_game *g)
 	g->co.h6->instances->enabled = false;
 	g->co.h7->instances->enabled = false;
 	g->co.h8->instances->enabled = false;
-	g->co.h9->instances->enabled = false;	
+	g->co.h9->instances->enabled = false;
 }
