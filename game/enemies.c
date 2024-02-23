@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:54:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 11:07:02 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:11:50 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,22 @@ void	place_ennemies(t_game *g)
 	}
 }
 
+void	resize_enemies(t_game *g)
+{
+	if (mlx_resize_image(g->sprite.enemy1a, g->p_size_x, \
+		g->p_size_y * 0.7) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.enemy1b, g->p_size_x, \
+		g->p_size_y * 0.7) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.enemy2a, g->p_size_x, \
+		g->p_size_y * 0.7) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.enemy2b, g->p_size_x, \
+		g->p_size_y * 0.7) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+}
+
 void	set_enemies(t_game *g)
 {
 	place_ennemies(g);
@@ -61,14 +77,19 @@ void	set_enemies(t_game *g)
 	g->sprite.enemy1b = mlx_texture_to_image(g->mlx, g->sprite.enemyb);
 	g->sprite.enemy2a = mlx_texture_to_image(g->mlx, g->sprite.enemya);
 	g->sprite.enemy2b = mlx_texture_to_image(g->mlx, g->sprite.enemyb);
-	mlx_resize_image(g->sprite.enemy1a, g->p_size_x, g->p_size_y * 0.7);
-	mlx_resize_image(g->sprite.enemy1b, g->p_size_x, g->p_size_y * 0.7);
-	mlx_image_to_window(g->mlx, g->sprite.enemy1a, g->z_pos_x, g->z_pos_y);
-	mlx_image_to_window(g->mlx, g->sprite.enemy1b, g->z_pos_x, g->z_pos_y);
-	mlx_resize_image(g->sprite.enemy2a, g->p_size_x, g->p_size_y * 0.7);
-	mlx_resize_image(g->sprite.enemy2b, g->p_size_x, g->p_size_y * 0.7);
-	mlx_image_to_window(g->mlx, g->sprite.enemy2a, g->y_pos_x, g->y_pos_y);
-	mlx_image_to_window(g->mlx, g->sprite.enemy2b, g->y_pos_x, g->y_pos_y);
+	resize_enemies(g);
+	if (mlx_image_to_window(g->mlx, g->sprite.enemy1a, g->z_pos_x, \
+		g->z_pos_y) == -1)
+		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_image_to_window(g->mlx, g->sprite.enemy1b, g->z_pos_x, \
+		g->z_pos_y) == -1)
+		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_image_to_window(g->mlx, g->sprite.enemy2a, g->y_pos_x, \
+		g->y_pos_y) == -1)
+		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_image_to_window(g->mlx, g->sprite.enemy2b, g->y_pos_x, \
+		g->y_pos_y) == -1)
+		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 }
 
 void	move_enemies(t_game *g)
