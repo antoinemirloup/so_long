@@ -6,11 +6,23 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:54:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/20 13:55:30 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:07:02 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	coord_enemy_z(t_game *g)
+{
+	g->z_pos_x = g->n_pos_x;
+	g->z_pos_y = g->n_pos_y;
+}
+
+void	coord_enemy_y(t_game *g)
+{
+	g->y_pos_x = g->n_pos_x;
+	g->y_pos_y = g->n_pos_y;
+}
 
 void	place_ennemies(t_game *g)
 {
@@ -27,15 +39,9 @@ void	place_ennemies(t_game *g)
 				g->n_pos_y = g->data.y * (HEIGHT / (float)(g->data.height));
 				g->data.map[g->data.y][g->data.x] = 'Z' - g->i;
 				if (g->data.map[g->data.y][g->data.x] == 'Z')
-				{
-					g->z_pos_x = g->n_pos_x;
-					g->z_pos_y = g->n_pos_y;
-				}
+					coord_enemy_z(g);
 				else if (g->data.map[g->data.y][g->data.x] == 'Y')
-				{
-					g->y_pos_x = g->n_pos_x;
-					g->y_pos_y = g->n_pos_y;
-				}
+					coord_enemy_y(g);
 				g->i++;
 			}
 		}

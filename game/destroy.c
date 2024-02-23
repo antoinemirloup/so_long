@@ -6,13 +6,13 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 14:05:07 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:50:46 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	destroy_all(t_game *g)
+void	d_a(t_game *g)
 {
 	mlx_close_window(g->mlx);
 	mlx_delete_texture(g->sprite.dino);

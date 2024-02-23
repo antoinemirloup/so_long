@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 17:17:11 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 10:08:32 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	move(mlx_key_data_t key, void *param)
 		move_rigth(g);
 	numbers(g);
 	collectibles(g);
+	if (g->count > 999)
+		exit((printf("you lose!"), EXIT_FAILURE));
 	exit_game(g);
 }
 
@@ -81,6 +83,6 @@ void	open_window(t_game *g, t_solong *s)
 	set_death(g);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);
-	destroy_all(g);
+	d_a(g);
 	mlx_terminate(g->mlx);
 }

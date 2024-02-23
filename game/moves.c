@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:48:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 17:16:47 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:41:02 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	move_down(t_game *g)
 
 void	move_left(t_game *g)
 {
-	g->moving = 1;
 	g->sprite.player->instances[0].x -= g->p_size_x;
 	g->sprite.p_l[0]->instances[0].x -= g->p_size_x;
 	g->sprite.p_l[1]->instances[0].x -= g->p_size_x;

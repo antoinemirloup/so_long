@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 17:16:56 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 09:50:55 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,7 @@ typedef struct s_game
 // MLX param
 
 void			open_window(t_game *g, t_solong *s);
-void			destroy_all(t_game *g);
+void			d_a(t_game *g);
 void			refresh(t_game *g);
 
 // Collectibles
