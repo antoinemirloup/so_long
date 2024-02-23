@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 10:08:32 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:27:17 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	move(mlx_key_data_t key, void *param)
 	t_game	*g;
 
 	g = param;
-	g->p_pos_x = g->sprite.player->instances[0].x;
-	g->p_pos_y = g->sprite.player->instances[0].y;
+	g->p_pos_x = g->sprite.player_left->instances[0].x;
+	g->p_pos_y = g->sprite.player_left->instances[0].y;
 	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
 	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	if (key.key == MLX_KEY_W && (key.action == 1 || key.action == 2) \
@@ -36,7 +36,7 @@ void	move(mlx_key_data_t key, void *param)
 	numbers(g);
 	collectibles(g);
 	if (g->count > 999)
-		exit((printf("you lose!"), EXIT_FAILURE));
+		exit((ft_printf("you lose!\n"), EXIT_FAILURE));
 	exit_game(g);
 }
 
@@ -65,15 +65,17 @@ void	ft_hook(void *param)
 void	open_window(t_game *g, t_solong *s)
 {
 	g->mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
-	mlx_set_window_pos(g->mlx, 1000, 500);
 	if (!g->mlx)
 		exit((ft_printf("Error\nInitializing MLX!\n"), EXIT_FAILURE));
+	mlx_set_window_pos(g->mlx, 1000, 500);
+	mlx_set_window_limit(g->mlx, WIDTH, HEIGHT, WIDTH, HEIGHT);
+	init_textures(g);
 	background(g);
 	walls(g, s);
 	set_exit(g);
 	player(g, s);
-	g->p_pos_x = g->sprite.player->instances[0].x;
-	g->p_pos_y = g->sprite.player->instances[0].y;
+	g->p_pos_x = g->sprite.player_left->instances[0].x;
+	g->p_pos_y = g->sprite.player_left->instances[0].y;
 	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
 	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	set_collectibles(g);

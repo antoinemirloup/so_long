@@ -6,11 +6,11 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 14:38:07 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:22:35 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 void	collectibles(t_game *g)
 {

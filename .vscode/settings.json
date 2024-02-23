@@ -21,5 +21,6 @@
             "binaryPath": "/home/amirloup/Documents/so_long/so_long",
             "binaryArgs": []
         }
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }

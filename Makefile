@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/22 15:50:51 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/23 15:15:41 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,38 @@ NAME = so_long
 CC = @cc
 CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g3 -fsanitize=address
 
-SRCS = main.c map/map_check.c map/path_check1.c map/path_check2.c map/utils1.c \
-	game/open_window.c game/destroy.c game/player.c game/background.c game/walls.c game/exit.c \
-	game/check_collision.c game/collectible.c game/fog.c game/counter.c game/counter_utils.c \
-	game/moves.c game/animations.c game/enemies.c game/death.c game/load_collectibles.c \
-	game/result.c game/delete_collectibles.c game/load_death.c
+SRCS = main.c \
+	map/map_check.c \
+	map/path_check1.c \
+	map/path_check2.c \
+	map/utils1.c \
+	game/open_window.c \
+	game/destroy.c \
+	game/player.c \
+	game/background.c \
+	game/walls.c \
+	game/exit.c \
+	game/check_collision.c \
+	game/collectibles/collectible.c \
+	game/collectibles/delete_collectibles.c \
+	game/collectibles/load_collectibles.c \
+	game/fog/set_fog.c \
+	game/fog/fog.c \
+	game/counter/counter.c \
+	game/counter/counter_unit.c \
+	game/counter/counter_ten.c \
+	game/counter/counter_hundred.c \
+	game/counter/counter_utils.c \
+	game/moves.c \
+	game/animations.c \
+	game/enemies/enemies.c \
+	game/enemies/move_enemies.c \
+	game/enemies/move_enemy_1.c \
+	game/enemies/move_enemy_2.c \
+	game/death/load_death.c \
+	game/death/death.c \
+	game/result.c \
+	game/init_textures.c
 
 LIBS	= MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm
 OBJS =	$(SRCS:.c=.o)

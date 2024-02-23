@@ -6,11 +6,11 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:31:40 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 14:34:42 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:22:41 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 void	delete_coll1(t_game *g)
 {

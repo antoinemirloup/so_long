@@ -6,11 +6,11 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:50:57 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 10:01:38 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:22:58 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 void	load_black_screen(t_game *g)
 {

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 09:50:55 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 15:48:49 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,8 @@ void			spread_y(t_solong *g);
 
 typedef struct s_sprite
 {
-	mlx_texture_t	*dino;
-	mlx_texture_t	*dino_left_1;
-	mlx_texture_t	*dino_left_2;
-	mlx_texture_t	*dino_left_3;
-	mlx_texture_t	*dino_rigth_1;
-	mlx_texture_t	*dino_rigth_2;
-	mlx_texture_t	*dino_rigth_3;
+	mlx_texture_t	*dino_left;
+	mlx_texture_t	*dino_right;
 	mlx_texture_t	*back;
 	mlx_texture_t	*bush;
 	mlx_texture_t	*nest;
@@ -77,9 +72,8 @@ typedef struct s_sprite
 	mlx_texture_t	*success;
 	mlx_texture_t	*enemya;
 	mlx_texture_t	*enemyb;
-	mlx_image_t		*player;
-	mlx_image_t		*p_l[4];
-	mlx_image_t		*p_r[4];
+	mlx_image_t		*player_left;
+	mlx_image_t		*player_right;
 	mlx_image_t		*background;
 	mlx_image_t		*wall;
 	mlx_image_t		*exit_nest;
@@ -97,7 +91,6 @@ typedef struct s_sprite
 	mlx_image_t		*fogg3;
 	mlx_image_t		*fogg4;
 	mlx_image_t		*succes;
-	mlx_image_t		*counter;
 	mlx_image_t		*enemy1a;
 	mlx_image_t		*enemy1b;
 	mlx_image_t		*enemy2a;
@@ -118,16 +111,36 @@ typedef struct s_counter
 	mlx_texture_t	*seven;
 	mlx_texture_t	*eigth;
 	mlx_texture_t	*nine;
-	mlx_image_t		*c0;
-	mlx_image_t		*c1;
-	mlx_image_t		*c2;
-	mlx_image_t		*c3;
-	mlx_image_t		*c4;
-	mlx_image_t		*c5;
-	mlx_image_t		*c6;
-	mlx_image_t		*c7;
-	mlx_image_t		*c8;
-	mlx_image_t		*c9;
+	mlx_image_t		*u0;
+	mlx_image_t		*u1;
+	mlx_image_t		*u2;
+	mlx_image_t		*u3;
+	mlx_image_t		*u4;
+	mlx_image_t		*u5;
+	mlx_image_t		*u6;
+	mlx_image_t		*u7;
+	mlx_image_t		*u8;
+	mlx_image_t		*u9;
+	mlx_image_t		*t0;
+	mlx_image_t		*t1;
+	mlx_image_t		*t2;
+	mlx_image_t		*t3;
+	mlx_image_t		*t4;
+	mlx_image_t		*t5;
+	mlx_image_t		*t6;
+	mlx_image_t		*t7;
+	mlx_image_t		*t8;
+	mlx_image_t		*t9;
+	mlx_image_t		*h0;
+	mlx_image_t		*h1;
+	mlx_image_t		*h2;
+	mlx_image_t		*h3;
+	mlx_image_t		*h4;
+	mlx_image_t		*h5;
+	mlx_image_t		*h6;
+	mlx_image_t		*h7;
+	mlx_image_t		*h8;
+	mlx_image_t		*h9;
 	mlx_texture_t	*r[3];
 	mlx_image_t		*result[3];
 	mlx_image_t		*tab[3];
@@ -178,6 +191,10 @@ typedef struct s_game
 	int			c_size_y;
 	int			p_coord_x;
 	int			p_coord_y;
+	int			n1_x;
+	int			n1_y;
+	int			n2_x;
+	int			n2_y;
 	size_t		c_tot;
 	int			a;
 	int			b;
@@ -210,6 +227,7 @@ typedef struct s_game
 void			open_window(t_game *g, t_solong *s);
 void			d_a(t_game *g);
 void			refresh(t_game *g);
+void			init_textures(t_game *g);
 
 // Collectibles
 
@@ -254,7 +272,14 @@ void			set_fog(t_game *g);
 // Counter
 
 void			numbers(t_game *g);
+void			load_numbers(t_game *g);
 void			set_numbers(t_game *g);
+void			get_units(t_game *g);
+void			get_ten(t_game *g);
+void			get_hundred(t_game *g);
+void			disable_units(t_game *g);
+void			disable_ten(t_game *g);
+void			disable_hundred(t_game *g);
 void			disp_unit(t_game *g);
 void			disp_ten(t_game *g);
 void			disp_hundred(t_game *g);
@@ -266,6 +291,8 @@ mlx_texture_t	*result_hundred(t_game *g);
 
 void			set_enemies(t_game *g);
 void			move_enemies(t_game *g);
+void			move_enemy_1(t_game *g);
+void			move_enemy_2(t_game *g);
 void			set_death(t_game *g);
 void			death(t_game *g);
 void			animate_death(t_game *g);

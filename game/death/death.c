@@ -6,11 +6,11 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:15:45 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 09:59:28 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:24:22 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 void	images_on_window(t_game *g)
 {
@@ -60,6 +60,8 @@ void	animate_death(t_game *g)
 	if (g->d.i > 0)
 		g->d.d[g->d.i - 1]->instances->enabled = false;
 	g->d.i++;
+	if (g->d.i == 8)
+		mlx_close_window(g->mlx);
 }
 
 void	death(t_game *g)
