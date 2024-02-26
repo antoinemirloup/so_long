@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/23 16:47:02 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/26 10:29:20 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = main.c \
 	game/background.c \
 	game/walls.c \
 	game/exit.c \
+	game/success.c \
 	game/check_collision.c \
 	game/collectibles/collectible.c \
 	game/collectibles/delete_collectibles.c \

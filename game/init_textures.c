@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:13:26 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:04:52 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:52:07 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ void	init_textures(t_game *g)
 	g->sprite.success = NULL;
 	g->sprite.enemya = NULL;
 	g->sprite.enemyb = NULL;
+	g->sprite.win_1 = NULL;
+	g->sprite.win_2 = NULL;
 	init_textures_2(g);
 }

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:50:46 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:53:10 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,10 @@ void	delete_textures_3(t_game *g)
 		mlx_delete_texture(g->d.death7);
 	if (g->d.death8)
 		mlx_delete_texture(g->d.death8);
+	if (g->sprite.win_1)
+		mlx_delete_texture(g->sprite.win_1);
+	if (g->sprite.win_2)
+		mlx_delete_texture(g->sprite.win_2);
 }
 
 void	d_a(t_game *g)

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:10:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/22 16:57:55 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:39:46 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,6 @@ void	refresh(t_game *g)
 		move_enemies(g);
 	if (g->frame % 8 == 0 && g->alive == 0)
 		animate_death(g);
+	if (g->frame % 8 == 0 && g->success == 1)
+		animate_success(g);
 }

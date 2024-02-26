@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:47:08 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:49:27 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:53:49 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,6 @@ void	delete_images_3(t_game *g)
 	mlx_delete_image(g->mlx, g->d.d[5]);
 	mlx_delete_image(g->mlx, g->d.d[6]);
 	mlx_delete_image(g->mlx, g->d.d[7]);
+	mlx_delete_image(g->mlx, g->sprite.win1);
+	mlx_delete_image(g->mlx, g->sprite.win2);
 }

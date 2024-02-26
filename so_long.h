@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 09:46:20 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:39:37 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef struct s_sprite
 	mlx_texture_t	*success;
 	mlx_texture_t	*enemya;
 	mlx_texture_t	*enemyb;
+	mlx_texture_t	*win_1;
+	mlx_texture_t	*win_2;
 	mlx_image_t		*player_left;
 	mlx_image_t		*player_right;
 	mlx_image_t		*background;
@@ -100,6 +102,8 @@ typedef struct s_sprite
 	mlx_image_t		*enemy2b;
 	mlx_image_t		*enemy1;
 	mlx_image_t		*enemy2;
+	mlx_image_t		*win1;
+	mlx_image_t		*win2;
 }	t_sprite;
 
 typedef struct s_counter
@@ -218,6 +222,7 @@ typedef struct s_game
 	int			dir_1;
 	int			dir_2;
 	int			alive;
+	int			win;
 	t_sprite	sprite;
 	t_solong	data;
 	t_counter	co;
@@ -308,5 +313,7 @@ void			load_death(t_game *g);
 void			place_exit(t_game *g);
 void			exit_game(t_game *g);
 void			set_exit(t_game *g);
+void			set_success(t_game *g);
+void			animate_success(t_game *g);
 
 #endif

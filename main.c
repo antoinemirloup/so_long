@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:57:19 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:37:49 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	init(t_game *g)
 	g->d.i = 0;
 	g->left = 0;
 	g->rigth = 0;
+	g->win = 0;
 }
 
 int	main(void)

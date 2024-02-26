@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:52:56 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 10:28:37 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	open_window(t_game *g, t_solong *s)
 	set_fog(g);
 	set_numbers(g);
 	set_death(g);
+	set_success(g);
 	mlx_loop_hook(g->mlx, ft_hook, (void *)g);
 	mlx_loop(g->mlx);
 	d_a(g);

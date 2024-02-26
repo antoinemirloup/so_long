@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:08:11 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 11:02:49 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:59:10 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	set_exit(t_game *g)
 		g->w_size_y / 1.2) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * \
-		WIDTH / g->data.width), (g->data.e_y * HEIGHT / g->data.height)) == -1)
+		WIDTH / (g->data.width - 1)), (g->data.e_y * \
+		HEIGHT / g->data.height)) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->sprite.exit_nest->instances->enabled = false;
 	g->sprite.success = mlx_load_png("assets/success.png");
