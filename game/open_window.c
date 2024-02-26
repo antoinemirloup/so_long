@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 11:53:17 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:01:02 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	ft_hook(void *param)
 	g = param;
 	g->c = count_c(&g->data, 'Q') + count_c(&g->data, 'R') + \
 		count_c(&g->data, 'S');
-	if (g->success == 0 && g->alive == 1)
-		fog(g);
+	// if (g->success == 0 && g->alive == 1)
+	// 	fog(g);
 	g->time += g->mlx->delta_time;
 	mlx_key_hook(g->mlx, move, (void *)g);
 	if (g->time > 0.03)
@@ -100,7 +100,7 @@ void	open_window(t_game *g, t_solong *s)
 	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
 	set_collectibles(g);
 	set_enemies(g);
-	set_fog(g);
+	// set_fog(g);
 	set_numbers(g);
 	set_death(g);
 	set_success(g);
