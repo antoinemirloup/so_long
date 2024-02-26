@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/19 16:52:35 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:51:05 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,31 @@ void	count_y(t_solong *data)
 
 void	get_map(t_solong *data)
 {
-	int		fd;
-	size_t	i;
+	char	*file;
 
-	i = 0;
+	data->k = 0;
+	file = "./map/map.ber";
+	check_ber(file);
 	count_y(data);
-	fd = open("./map/map.ber", O_RDONLY);
-	if (fd == -1)
+	data->fd = open(file, O_RDONLY);
+	if (data->fd == -1)
 		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
 	data->map = malloc(sizeof(char *) * (data->height + 1));
 	if (!data->map)
 		exit((ft_printf("Error\nMem error!\n"), \
 		free_tab(data->map), EXIT_FAILURE));
-	while (i < data->height)
+	while (data->k < data->height)
 	{
-		data->map[i] = get_next_line(fd);
-		if (!data->map[i])
+		data->map[data->k] = get_next_line(data->fd);
+		if (!data->map[data->k])
 			exit((ft_printf("Error\nMem error!\n"), \
 			free_tab(data->map), EXIT_FAILURE));
-		i++;
+		data->k++;
 	}
-	data->map[i] = NULL;
+	data->map[data->k] = NULL;
 	if (data->map[0] != NULL)
 		data->width = ft_strlen(data->map[0]);
-	close (fd);
+	close (data->fd);
 }
 
 void	check_walls(t_solong *data)

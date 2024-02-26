@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:56:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 14:30:51 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:51:32 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,16 @@ size_t	count_c(t_solong *g, char c)
 		g->y++;
 	}
 	return (n);
+}
+
+void	check_ber(char *s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	if (s[i - 1] != 'r' && s[i - 2] != 'e' \
+		&& s[i - 3] != 'b' && s[i - 4] != '.')
+		exit((ft_printf("Error\nThe map is not a .ber file!\n"), EXIT_FAILURE));
 }

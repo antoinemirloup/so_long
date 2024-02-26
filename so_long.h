@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:50:20 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:46:20 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,14 @@ typedef struct s_solong
 	size_t	e_y;
 	size_t	i;
 	size_t	j;
+	size_t	k;
+	int		fd;
 }	t_solong;
 
 void			get_map(t_solong *g);
 void			check_map(t_solong *g);
 void			free_tab(char **tab);
+void			check_ber(char *s);
 size_t			count_c(t_solong *g, char c);
 void			map_doable(t_solong *g);
 void			init_x(t_solong *g);
