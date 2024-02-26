@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 11:00:08 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:53:17 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	move(mlx_key_data_t key, void *param)
 	numbers(g);
 	collectibles(g);
 	if (g->count > 999)
-		exit((ft_printf("you lose!\n"), EXIT_FAILURE));
+		exit((ft_printf("You lose!\n"), d_a(g), EXIT_FAILURE));
 	exit_game(g);
 }
 
