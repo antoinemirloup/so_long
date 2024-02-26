@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:54:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 14:23:03 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:29:42 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ void	coord_enemy_z(t_game *g)
 {
 	g->z_pos_x = g->n_pos_x;
 	g->z_pos_y = g->n_pos_y;
+	printf("zx: %d | zy: %d\n", g->z_pos_x, g->z_pos_y);
 }
 
 void	coord_enemy_y(t_game *g)
 {
 	g->y_pos_x = g->n_pos_x;
 	g->y_pos_y = g->n_pos_y;
+	printf("yx: %d | yy: %d\n", g->y_pos_x, g->y_pos_y);
 }
 
 void	place_ennemies(t_game *g)

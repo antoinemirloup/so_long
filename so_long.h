@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 10:39:37 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:26:02 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "MLX42/include/MLX42/MLX42.h"
 
 # define WIDTH 2000
-# define HEIGHT 1000
+# define HEIGHT 2000
 
 // Map check
 
