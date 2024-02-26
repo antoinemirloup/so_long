@@ -6,11 +6,30 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 10:28:37 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:00:08 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	looking_direction(mlx_key_data_t key, void *param)
+{
+	t_game	*g;
+
+	g = param;
+	if (key.key == MLX_KEY_A && (key.action == 1 || key.action == 2) \
+		&& check_left(g) == 0 && g->success == 0 && g->alive == 1)
+	{
+		g->sprite.player_left->instances->enabled = true;
+		g->sprite.player_right->instances->enabled = false;
+	}
+	if (key.key == MLX_KEY_D && (key.action == 1 || key.action == 2) \
+		&& check_rigth(g) == 0 && g->success == 0 && g->alive == 1)
+	{
+		g->sprite.player_left->instances->enabled = false;
+		g->sprite.player_right->instances->enabled = true;
+	}
+}
 
 void	move(mlx_key_data_t key, void *param)
 {
@@ -33,6 +52,7 @@ void	move(mlx_key_data_t key, void *param)
 	if (key.key == MLX_KEY_D && (key.action == 1 || key.action == 2) \
 		&& check_rigth(g) == 1 && g->success == 0 && g->alive == 1)
 		move_rigth(g);
+	looking_direction(key, param);
 	numbers(g);
 	collectibles(g);
 	if (g->count > 999)
