@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:54:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 12:01:20 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:57:39 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ void	place_ennemies(t_game *g)
 		{
 			if (g->data.map[g->data.y][g->data.x] == 'N')
 			{
-				g->n_pos_x = round(g->data.x * (WIDTH / (float)(g->data.width - 1)));
-				g->n_pos_y = round(g->data.y * (HEIGHT / (float)(g->data.height)));
+				g->n_pos_x = round(g->data.x * \
+					(WIDTH / (float)(g->data.width - 1)));
+				g->n_pos_y = round(g->data.y * \
+					(HEIGHT / (float)(g->data.height)));
 				g->data.map[g->data.y][g->data.x] = 'Z' - g->i;
 				if (g->data.map[g->data.y][g->data.x] == 'Z')
 					coord_enemy_z(g);

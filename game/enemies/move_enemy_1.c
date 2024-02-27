@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 11:25:54 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 12:02:16 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:58:26 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	move_enemy_1(t_game *g)
 	if (g->dir_1 == 1)
 	{
 		g->e = 1;
-		// printf("y: %d\n", g->n1_y);
 		if (g->data.map[g->n1_y - 1][g->n1_x] != '0' && g->a % 2 == 0)
 			g->dir_1 = 0;
 		else
@@ -80,7 +79,6 @@ void	move_enemy_1(t_game *g)
 	if (g->dir_1 == 0)
 	{
 		g->e = 1;
-		// printf("y: %d\n", g->n1_y);
 		if (g->data.map[g->n1_y + 1][g->n1_x] != '0' && g->a % 2 == 0)
 			g->dir_1 = 1;
 		else
