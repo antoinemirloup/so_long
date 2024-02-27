@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 11:53:46 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:09:34 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init(t_game *g)
 	g->win = 0;
 	g->size_x = round(WIDTH / (float)(g->data.width - 1));
 	g->size_y = round(HEIGHT / (float)(g->data.height));
+	g->n_enemies = count_c(&g->data, 'N');
 }
 
 int	main(int argc, char **argv)

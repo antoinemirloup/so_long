@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 14:22:35 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:31:51 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	collectibles(t_game *g)
 
 void	place_r(t_game *g)
 {
-	g->r_pos_x = g->c_pos_x;
+	g->r_pos_x = g->c_pos_x + (g->size_x / 3);
 	g->r_pos_y = g->c_pos_y;
 }
 
 void	place_s(t_game *g)
 {
-	g->s_pos_x = g->c_pos_x;
-	g->s_pos_y = g->c_pos_y;
+	g->s_pos_x = g->c_pos_x + (g->size_x / 3);
+	g->s_pos_y = g->c_pos_y ;
 }
 
 void	place_collectibles(t_game *g)
@@ -47,7 +47,7 @@ void	place_collectibles(t_game *g)
 				g->data.map[g->data.y][g->data.x] = 'Q' + g->i;
 				if (g->data.map[g->data.y][g->data.x] == 'Q')
 				{
-					g->q_pos_x = g->c_pos_x;
+					g->q_pos_x = g->c_pos_x + (g->size_x / 3);
 					g->q_pos_y = g->c_pos_y;
 				}
 				else if (g->data.map[g->data.y][g->data.x] == 'R')

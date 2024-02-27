@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 10:11:05 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:09:59 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ void	check_shape(t_solong *data)
 			free_tab(data->map), EXIT_FAILURE));
 		data->y++;
 	}
+	if (count_c(data, 'C') > 3)
+		exit((ft_printf("Error\nToo many collectibles!\n"), \
+			free_tab(data->map), EXIT_FAILURE));
 }
 
 void	check_map(t_solong *data)

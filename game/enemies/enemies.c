@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:54:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 12:57:39 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:34:57 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,8 @@ void	set_enemies(t_game *g)
 	g->sprite.enemy2a = mlx_texture_to_image(g->mlx, g->sprite.enemya);
 	g->sprite.enemy2b = mlx_texture_to_image(g->mlx, g->sprite.enemyb);
 	resize_enemies(g);
-	if (mlx_image_to_window(g->mlx, g->sprite.enemy1a, g->z_pos_x, \
-		g->z_pos_y) == -1)
-		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_image_to_window(g->mlx, g->sprite.enemy1b, g->z_pos_x, \
-		g->z_pos_y) == -1)
-		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_image_to_window(g->mlx, g->sprite.enemy2a, g->y_pos_x, \
-		g->y_pos_y) == -1)
-		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_image_to_window(g->mlx, g->sprite.enemy2b, g->y_pos_x, \
-		g->y_pos_y) == -1)
-		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
+	if (g->n_enemies == 1)
+		set_one_enemy(g);
+	if (g->n_enemies == 2)
+		set_two_enemies(g);
 }

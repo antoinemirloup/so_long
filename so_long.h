@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 13:00:06 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:33:46 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,6 +221,7 @@ typedef struct s_game
 	int			dir_2;
 	int			alive;
 	int			win;
+	size_t		n_enemies;
 	t_sprite	sprite;
 	t_solong	data;
 	t_counter	co;
@@ -298,6 +299,8 @@ mlx_texture_t	*result_hundred(t_game *g);
 // Ennemies and death
 
 void			set_enemies(t_game *g);
+void			set_one_enemy(t_game *g);
+void			set_two_enemies(t_game *g);
 void			move_enemies(t_game *g);
 void			move_enemy_1(t_game *g);
 void			move_enemy_2(t_game *g);
