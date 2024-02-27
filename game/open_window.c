@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 11:28:29 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:16:58 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	move(mlx_key_data_t key, void *param)
 	g = param;
 	g->p_pos_x = g->sprite.player_left->instances[0].x;
 	g->p_pos_y = g->sprite.player_left->instances[0].y;
-	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
-	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
+	g->p_coord_x = round(g->p_pos_x * (float)(g->data.width - 1) / WIDTH);
+	g->p_coord_y = round(g->p_pos_y * (float)g->data.height / HEIGHT);
 	if (key.key == MLX_KEY_W && (key.action == 1 || key.action == 2) \
 		&& check_up(g) == 1 && g->success == 0 && g->alive == 1)
 		move_up(g);
@@ -96,8 +96,8 @@ void	open_window(t_game *g, t_solong *s)
 	player(g, s);
 	g->p_pos_x = g->sprite.player_left->instances[0].x;
 	g->p_pos_y = g->sprite.player_left->instances[0].y;
-	g->p_coord_x = round(g->p_pos_x * g->data.width / WIDTH);
-	g->p_coord_y = round(g->p_pos_y * g->data.height / HEIGHT);
+	g->p_coord_x = round(g->p_pos_x * (float)(g->data.width - 1) / WIDTH);
+	g->p_coord_y = round(g->p_pos_y * (float)g->data.height / HEIGHT);
 	set_collectibles(g);
 	set_enemies(g);
 	// set_fog(g);
