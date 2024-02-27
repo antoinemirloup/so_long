@@ -6,7 +6,7 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/27 11:18:32 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/27 16:55:17 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,6 @@ ex:		re clean
 
 git: 
 	@git add . > /dev/null 2>&1
-	@git commit -m "$(CURRENT_DATE)" > /dev/null 2>&1
+	@git commit -m "$(CURRENT_DATE)" > /dev/null 2>&1 || echo "$(GREEN) GIT ALREADY UP TO DATE"
 	@git push > /dev/null 2>&1
 	@echo "$(GREEN) GIT UPDATE WAS A HUGE SUCCESS!"
