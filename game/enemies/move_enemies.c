@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 11:12:42 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 10:55:27 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:18:30 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	move_enemies(t_game *g)
 {
-	g->n1_x = round(g->sprite.enemy1a->instances[0].x * g->data.width / WIDTH);
+	g->n1_x = round(g->sprite.enemy1a->instances[0].x * (float)(g->data.width - 1) / WIDTH);
 	g->n1_y = round(g->sprite.enemy1a->instances[0].y * \
-		g->data.height / HEIGHT);
-	g->n2_x = round(g->sprite.enemy2a->instances[0].x * g->data.width / WIDTH);
+		(float)g->data.height / HEIGHT);
+	g->n2_x = round(g->sprite.enemy2a->instances[0].x * (float)(g->data.width - 1) / WIDTH);
 	g->n2_y = round(g->sprite.enemy2a->instances[0].y * \
-		g->data.height / HEIGHT);
+		(float)g->data.height / HEIGHT);
 	if (g->e == 0)
 	{
 		g->sprite.enemy1 = g->sprite.enemy1a;
