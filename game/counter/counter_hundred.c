@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 15:13:40 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:41:35 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:48:25 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,39 @@ void	resize_hundred(t_game *g)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 }
 
-void	hundred_to_window(t_game *g)
+void	hundred_to_window(t_game *g, int x)
 {
-	if (mlx_image_to_window(g->mlx, g->co.h2, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h2, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h2->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h3, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h3, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h3->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h4, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h4, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h4->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h5, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h5, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h5->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h6, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h6, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h6->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h7, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h7, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h7->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h8, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h8, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h8->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.h9, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h9, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h9->instances->enabled = false;
 }
 
 void	get_hundred(t_game *g)
 {
+	int	x;
+
+	x = WIDTH - ((WIDTH * 190) / 2000);
 	g->co.h0 = mlx_texture_to_image(g->mlx, g->co.zero);
 	g->co.h1 = mlx_texture_to_image(g->mlx, g->co.one);
 	g->co.h2 = mlx_texture_to_image(g->mlx, g->co.two);
@@ -77,13 +80,13 @@ void	get_hundred(t_game *g)
 	g->co.h8 = mlx_texture_to_image(g->mlx, g->co.eigth);
 	g->co.h9 = mlx_texture_to_image(g->mlx, g->co.nine);
 	resize_hundred(g);
-	if (mlx_image_to_window(g->mlx, g->co.h0, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h0, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h0->instances->enabled = true;
-	if (mlx_image_to_window(g->mlx, g->co.h1, WIDTH - 190, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.h1, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.h1->instances->enabled = false;
-	hundred_to_window(g);
+	hundred_to_window(g, x);
 }
 
 void	disable_hundred(t_game *g)

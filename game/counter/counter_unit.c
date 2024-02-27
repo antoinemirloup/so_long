@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 14:37:22 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 16:41:23 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:47:06 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,39 @@ void	resize_units(t_game *g)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 }
 
-void	units_to_window(t_game *g)
+void	units_to_window(t_game *g, int x)
 {
-	if (mlx_image_to_window(g->mlx, g->co.u2, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u2, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u2->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u3, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u3, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u3->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u4, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u4, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u4->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u5, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u5, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u5->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u6, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u6, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u6->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u7, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u7, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u7->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u8, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u8, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u8->instances->enabled = false;
-	if (mlx_image_to_window(g->mlx, g->co.u9, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u9, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u9->instances->enabled = false;
 }
 
 void	get_units(t_game *g)
 {
+	int	x;
+
+	x = WIDTH - ((WIDTH * 90) / 2000);
 	g->co.u0 = mlx_texture_to_image(g->mlx, g->co.zero);
 	g->co.u1 = mlx_texture_to_image(g->mlx, g->co.one);
 	g->co.u2 = mlx_texture_to_image(g->mlx, g->co.two);
@@ -77,13 +80,13 @@ void	get_units(t_game *g)
 	g->co.u8 = mlx_texture_to_image(g->mlx, g->co.eigth);
 	g->co.u9 = mlx_texture_to_image(g->mlx, g->co.nine);
 	resize_units(g);
-	if (mlx_image_to_window(g->mlx, g->co.u0, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u0, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u0->instances->enabled = true;
-	if (mlx_image_to_window(g->mlx, g->co.u1, WIDTH - 90, 20) == -1)
+	if (mlx_image_to_window(g->mlx, g->co.u1, x, 20) == -1)
 		exit((ft_printf("Error\nImage on window!\n"), d_a(g), EXIT_FAILURE));
 	g->co.u1->instances->enabled = false;
-	units_to_window(g);
+	units_to_window(g, x);
 }
 
 void	disable_units(t_game *g)
