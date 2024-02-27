@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:45:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 11:49:12 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:46:01 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	player(t_game *g, t_solong *s)
 		exit((ft_printf("Error\nLoading image!\n"), d_a(g), EXIT_FAILURE));
 	g->sprite.player_left = mlx_texture_to_image(g->mlx, g->sprite.dino_left);
 	g->sprite.player_right = mlx_texture_to_image(g->mlx, g->sprite.dino_right);
-	if (mlx_resize_image(g->sprite.player_left, g->size_x, \
-		g->size_y) == false)
+	if (mlx_resize_image(g->sprite.player_left, g->size_x * 1.2, \
+		g->size_y * 0.8) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.player_right, g->size_x, \
-		g->size_y) == false)
+	if (mlx_resize_image(g->sprite.player_right, g->size_x * 1.2, \
+		g->size_y * 0.8) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_image_to_window(g->mlx, g->sprite.player_left, (s->p_x * WIDTH / \
 		(s->width - 1)), (s->p_y * HEIGHT / s->height)) == -1)
