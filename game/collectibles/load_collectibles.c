@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:31:30 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 14:22:44 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:52:33 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	load_collectibles(t_game *g)
 {
-	g->c_size_y = (HEIGHT / g->data.height) / 1.2;
-	g->c_size_x = g->w_size_y / 1.98;
+	g->c_size_y = g->size_y / 1.2;
+	g->c_size_x = g->size_y / 1.98;
 	g->sprite.bat1 = mlx_load_png("assets/battery1.png");
 	if (!g->sprite.bat1)
 		exit((ft_printf("Error\nLoading image!\n"), d_a(g), EXIT_FAILURE));

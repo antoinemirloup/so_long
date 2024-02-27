@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 12:31:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/23 10:12:08 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:32:26 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ void	wall_on_window(t_game *g)
 
 void	walls(t_game *g, t_solong *s)
 {
-	g->w_size_x = round(WIDTH / (float)(s->width - 1));
-	g->w_size_y = round(HEIGHT / (float)(s->height));
 	g->sprite.bush = mlx_load_png("assets/bush.png");
 	if (!g->sprite.bush)
 		exit((ft_printf("Error\nLoading image!\n"), d_a(g), EXIT_FAILURE));
 	g->sprite.wall = mlx_texture_to_image(g->mlx, g->sprite.bush);
-	if (mlx_resize_image(g->sprite.wall, g->w_size_x, g->w_size_y) == false)
+	if (mlx_resize_image(g->sprite.wall, g->size_x, g->size_y) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	s->y = -1;
 	while (++s->y < s->height)

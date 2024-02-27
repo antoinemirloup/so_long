@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:54:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 16:29:42 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:01:20 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ void	coord_enemy_z(t_game *g)
 {
 	g->z_pos_x = g->n_pos_x;
 	g->z_pos_y = g->n_pos_y;
-	printf("zx: %d | zy: %d\n", g->z_pos_x, g->z_pos_y);
 }
 
 void	coord_enemy_y(t_game *g)
 {
 	g->y_pos_x = g->n_pos_x;
 	g->y_pos_y = g->n_pos_y;
-	printf("yx: %d | yy: %d\n", g->y_pos_x, g->y_pos_y);
 }
 
 void	place_ennemies(t_game *g)
@@ -37,8 +35,8 @@ void	place_ennemies(t_game *g)
 		{
 			if (g->data.map[g->data.y][g->data.x] == 'N')
 			{
-				g->n_pos_x = g->data.x * (WIDTH / (float)(g->data.width - 1));
-				g->n_pos_y = g->data.y * (HEIGHT / (float)(g->data.height));
+				g->n_pos_x = round(g->data.x * (WIDTH / (float)(g->data.width - 1)));
+				g->n_pos_y = round(g->data.y * (HEIGHT / (float)(g->data.height)));
 				g->data.map[g->data.y][g->data.x] = 'Z' - g->i;
 				if (g->data.map[g->data.y][g->data.x] == 'Z')
 					coord_enemy_z(g);
@@ -52,17 +50,17 @@ void	place_ennemies(t_game *g)
 
 void	resize_enemies(t_game *g)
 {
-	if (mlx_resize_image(g->sprite.enemy1a, g->p_size_x, \
-		g->p_size_y * 0.7) == false)
+	if (mlx_resize_image(g->sprite.enemy1a, g->size_x, \
+		g->size_y * 0.7) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.enemy1b, g->p_size_x, \
-		g->p_size_y * 0.7) == false)
+	if (mlx_resize_image(g->sprite.enemy1b, g->size_x, \
+		g->size_y * 0.7) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.enemy2a, g->p_size_x, \
-		g->p_size_y * 0.7) == false)
+	if (mlx_resize_image(g->sprite.enemy2a, g->size_x, \
+		g->size_y * 0.7) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.enemy2b, g->p_size_x, \
-		g->p_size_y * 0.7) == false)
+	if (mlx_resize_image(g->sprite.enemy2b, g->size_x, \
+		g->size_y * 0.7) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 }
 

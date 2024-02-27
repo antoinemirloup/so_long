@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:08:11 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 16:23:45 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:55:01 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	set_exit(t_game *g)
 	if (!g->sprite.nest)
 		exit((ft_printf("Error\nLoading image!\n"), d_a(g), EXIT_FAILURE));
 	g->sprite.exit_nest = mlx_texture_to_image(g->mlx, g->sprite.nest);
-	if (mlx_resize_image(g->sprite.exit_nest, g->w_size_x, \
-		g->w_size_y / 1.2) == false)
+	if (mlx_resize_image(g->sprite.exit_nest, g->size_x, \
+		g->size_y / 1.2) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_image_to_window(g->mlx, g->sprite.exit_nest, (g->data.e_x * \
 		WIDTH / (g->data.width - 1)), (g->data.e_y * \

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:39:09 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 16:22:42 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:53:46 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,23 @@ void	init(t_game *g)
 	g->left = 0;
 	g->rigth = 0;
 	g->win = 0;
+	g->size_x = round(WIDTH / (float)(g->data.width - 1));
+	g->size_y = round(HEIGHT / (float)(g->data.height));
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game		g;
 
-	get_map(&g.data);
-	check_map(&g.data);
-	map_doable(&g.data);
-	free_tab(g.data.map);
-	get_map(&g.data);
-	init(&g);
-	open_window(&g, &g.data);
-	free_tab(g.data.map);
+	if (argc == 2)
+	{
+		get_map(&g.data, argv);
+		check_map(&g.data);
+		map_doable(&g.data);
+		free_tab(g.data.map);
+		get_map(&g.data, argv);
+		init(&g);
+		open_window(&g, &g.data);
+		free_tab(g.data.map);
+	}
 }

@@ -6,19 +6,19 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 09:51:05 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:11:05 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	count_y(t_solong *data)
+void	count_y(t_solong *data, char **argv)
 {
 	int			fd;
 	char		*line;
 
 	data->height = 0;
-	fd = open("./map/map.ber", O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
 	line = get_next_line(fd);
@@ -31,14 +31,14 @@ void	count_y(t_solong *data)
 	close (fd);
 }
 
-void	get_map(t_solong *data)
+void	get_map(t_solong *data, char **argv)
 {
 	char	*file;
 
 	data->k = 0;
-	file = "./map/map.ber";
+	file = argv[1];
 	check_ber(file);
-	count_y(data);
+	count_y(data, argv);
 	data->fd = open(file, O_RDONLY);
 	if (data->fd == -1)
 		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));

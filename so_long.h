@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:09:39 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 16:26:02 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:48:24 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "MLX42/include/MLX42/MLX42.h"
 
 # define WIDTH 2000
-# define HEIGHT 2000
+# define HEIGHT 1000
 
 // Map check
 
@@ -45,7 +45,7 @@ typedef struct s_solong
 	int		fd;
 }	t_solong;
 
-void			get_map(t_solong *g);
+void			get_map(t_solong *g, char **argv);
 void			check_map(t_solong *g);
 void			free_tab(char **tab);
 void			check_ber(char *s);
@@ -173,14 +173,12 @@ typedef struct s_game
 	mlx_t		*mlx;
 	int			p_pos_x;
 	int			p_pos_y;
-	int			p_size_x;
-	int			p_size_y;
 	int			w_pos_x;
 	int			w_pos_y;
 	int			n_pos_x;
 	int			n_pos_y;
-	int			w_size_x;
-	int			w_size_y;
+	int			size_x;
+	int			size_y;
 	int			c_pos_x;
 	int			c_pos_y;
 	int			q_pos_x;
