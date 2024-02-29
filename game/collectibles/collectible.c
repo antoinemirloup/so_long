@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 14:53:47 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 13:31:51 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:07:24 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,17 @@ void	set_collectibles(t_game *g)
 	place_collectibles(g);
 	load_collectibles(g);
 	resize_collectibles(g);
-	coll1(g);
-	coll2(g);
-	coll3(g);
+	if (g->c_tot == 1)
+		coll1(g);
+	if (g->c_tot == 2)
+	{
+		coll1(g);
+		coll2(g);
+	}
+	if (g->c_tot == 3)
+	{
+		coll1(g);
+		coll2(g);
+		coll3(g);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:31:30 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 11:52:33 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:05:28 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	load_collectibles(t_game *g)
 	if (!g->sprite.bat3)
 		exit((ft_printf("Error\nLoading image!\n"), d_a(g), EXIT_FAILURE));
 	g->sprite.batt1q = mlx_texture_to_image(g->mlx, g->sprite.bat1);
-	g->sprite.batt1r = mlx_texture_to_image(g->mlx, g->sprite.bat1);
-	g->sprite.batt1s = mlx_texture_to_image(g->mlx, g->sprite.bat1);
 	g->sprite.batt2q = mlx_texture_to_image(g->mlx, g->sprite.bat2);
-	g->sprite.batt2r = mlx_texture_to_image(g->mlx, g->sprite.bat2);
-	g->sprite.batt2s = mlx_texture_to_image(g->mlx, g->sprite.bat2);
 	g->sprite.batt3q = mlx_texture_to_image(g->mlx, g->sprite.bat3);
+	g->sprite.batt1r = mlx_texture_to_image(g->mlx, g->sprite.bat1);
+	g->sprite.batt2r = mlx_texture_to_image(g->mlx, g->sprite.bat2);
 	g->sprite.batt3r = mlx_texture_to_image(g->mlx, g->sprite.bat3);
+	g->sprite.batt1s = mlx_texture_to_image(g->mlx, g->sprite.bat1);
+	g->sprite.batt2s = mlx_texture_to_image(g->mlx, g->sprite.bat2);
 	g->sprite.batt3s = mlx_texture_to_image(g->mlx, g->sprite.bat3);
 }
 
@@ -40,19 +40,19 @@ void	resize_collectibles(t_game *g)
 {
 	if (mlx_resize_image(g->sprite.batt1q, g->c_size_x, g->c_size_y) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.batt1r, g->c_size_x, g->c_size_y) == false)
-		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.batt1s, g->c_size_x, g->c_size_y) == false)
-		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_resize_image(g->sprite.batt2q, g->c_size_x, g->c_size_y) == false)
-		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.batt2r, g->c_size_x, g->c_size_y) == false)
-		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
-	if (mlx_resize_image(g->sprite.batt2s, g->c_size_x, g->c_size_y) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_resize_image(g->sprite.batt3q, g->c_size_x, g->c_size_y) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.batt1r, g->c_size_x, g->c_size_y) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.batt2r, g->c_size_x, g->c_size_y) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_resize_image(g->sprite.batt3r, g->c_size_x, g->c_size_y) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.batt1s, g->c_size_x, g->c_size_y) == false)
+		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
+	if (mlx_resize_image(g->sprite.batt2s, g->c_size_x, g->c_size_y) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));
 	if (mlx_resize_image(g->sprite.batt3s, g->c_size_x, g->c_size_y) == false)
 		exit((ft_printf("Error\nResizing image!\n"), d_a(g), EXIT_FAILURE));

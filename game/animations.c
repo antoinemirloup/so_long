@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:10:06 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 13:47:02 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 10:08:37 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ void	batts(t_game *g)
 
 void	refresh(t_game *g)
 {
-	if (g->frame % 10 == 0 && g->b_q == 1)
+	if (g->frame % 10 == 0 && g->b_q == 1 && g->c_tot <= 3)
 		battq(g);
-	if (g->frame % 10 == 0 && g->b_r == 1)
+	if (g->frame % 10 == 0 && g->b_r == 1 && (g->c_tot == 2 || g->c_tot == 3))
 		battr(g);
-	if (g->frame % 10 == 0 && g->b_s == 1)
+	if (g->frame % 10 == 0 && g->b_s == 1 && g->c_tot == 3)
 		batts(g);
 	if (g->frame % 8 == 0)
 		move_enemies(g);

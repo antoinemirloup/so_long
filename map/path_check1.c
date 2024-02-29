@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:34:38 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/09 14:28:58 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 09:07:15 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	map_doable(t_solong *g)
 	}
 	if (scan_xy(g, 'P', 'E') && count_c(g, 'C') == 0)
 		return ;
-	if (scan_xy(g, 'X', 'Y') == 0 || count_c(g, 'C') != 0)
+	if ((scan_xy(g, 'X', 'Y') == 0 && scan_xy(g, 'E', 'X') == 0 && \
+		scan_xy(g, 'P', 'Y') == 0) || count_c(g, 'C') != 0)
 		exit((ft_printf("Error\nMap not doable!\n"), \
 		free_tab(g->map), EXIT_FAILURE));
 }
