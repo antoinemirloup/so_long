@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:50:49 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 14:23:18 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:29:07 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ void	open_window(t_game *g, t_solong *s)
 {
 	g->mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
 	if (!g->mlx)
-		exit((ft_printf("Error\nInitializing MLX!\n"), EXIT_FAILURE));
+		exit((ft_printf("Error\nInitializing MLX!\n"), \
+			free_tab(g->data.map), EXIT_FAILURE));
 	mlx_set_window_pos(g->mlx, 1000, 500);
 	mlx_set_window_limit(g->mlx, WIDTH, HEIGHT, WIDTH, HEIGHT);
 	init_textures(g);

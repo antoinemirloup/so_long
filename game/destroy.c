@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:13:25 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/26 10:53:10 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:36:18 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	delete_textures_3(t_game *g)
 void	d_a(t_game *g)
 {
 	mlx_close_window(g->mlx);
+	free_tab(g->data.map);
 	delete_textures_1(g);
 	delete_textures_2(g);
 	delete_textures_3(g);

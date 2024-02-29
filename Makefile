@@ -6,13 +6,13 @@
 #    By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 11:12:26 by amirloup          #+#    #+#              #
-#    Updated: 2024/02/27 16:55:17 by amirloup         ###   ########.fr        #
+#    Updated: 2024/02/29 13:30:32 by amirloup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = @cc
-CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g3 -fsanitize=address
 
 SRCS = main.c \
 	map/map_check.c \

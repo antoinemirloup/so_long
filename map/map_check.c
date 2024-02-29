@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:50:28 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/27 13:09:59 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:13:50 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	get_map(t_solong *data, char **argv)
 		exit((ft_printf("Error\nError while opening the map!\n"), EXIT_FAILURE));
 	data->map = malloc(sizeof(char *) * (data->height + 1));
 	if (!data->map)
-		exit((ft_printf("Error\nMem error!\n"), \
-		free_tab(data->map), EXIT_FAILURE));
+		exit((ft_printf("Error\nMem error!\n"), EXIT_FAILURE));
 	while (data->k < data->height)
 	{
 		data->map[data->k] = get_next_line(data->fd);
