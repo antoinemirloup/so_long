@@ -6,7 +6,7 @@
 /*   By: amirloup <amirloup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:56:18 by amirloup          #+#    #+#             */
-/*   Updated: 2024/02/29 13:33:39 by amirloup         ###   ########.fr       */
+/*   Updated: 2024/03/01 11:10:18 by amirloup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_ber(char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	if (s[i - 1] != 'r' && s[i - 2] != 'e' \
-		&& s[i - 3] != 'b' && s[i - 4] != '.')
+	if (s[i - 1] != 'r' || s[i - 2] != 'e' \
+		|| s[i - 3] != 'b' || s[i - 4] != '.')
 		exit((ft_printf("Error\nThe map is not a .ber file!\n"), EXIT_FAILURE));
 }
